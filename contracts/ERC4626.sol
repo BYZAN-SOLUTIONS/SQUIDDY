@@ -39,8 +39,9 @@ abstract contract ERC4626 is ERC20 {
     constructor(
         ERC20 _asset,
         string memory _name,
-        string memory _symbol
-    ) ERC20(_name, _symbol, _asset.decimals()) {
+        string memory _symbol,
+        uint8 _decimals
+    ) ERC20(_name, _symbol, _decimals) {
         asset = _asset;
     }
 
