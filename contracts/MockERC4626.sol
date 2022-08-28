@@ -11,8 +11,9 @@ contract MockERC4626 is ERC4626 {
     constructor(
         ERC20 _underlying,
         string memory _name,
-        string memory _symbol
-    ) ERC4626(_underlying, _name, _symbol) {}
+        string memory _symbol,
+        uint8 _decimals
+    ) ERC4626(_underlying, _name, _symbol, _decimals) {}
 
     function totalAssets() public view override returns (uint256) {
         return asset.balanceOf(address(this));
