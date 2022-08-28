@@ -6,7 +6,6 @@ const ConnectButton = ({
   walletAddress,
 }) => {
   const trimAddress = (address) => {
-    console.log(address.slice(0, 6) + "..." + address.slice(-3));
     return address.slice(0, 6) + "..." + address.slice(-3);
   };
 

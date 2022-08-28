@@ -26,14 +26,12 @@ const CreateVault = () => {
   const [hasSubmitted, setHasSubmitted] = useState(false);
 
   const handleSubmit = async () => {
-    console.log("handleSubmit");
     setHasSubmitted(true);
 
     if (name === "" || symbol === "" || asset === "") {
       return;
     }
 
-    console.log("handleSubmit", name, symbol);
     // const data = { name, symbol, signer };
 
     // let result = await axios.post(`/api/deploy-contract`, data);
