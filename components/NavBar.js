@@ -22,7 +22,7 @@ import {
   connectWallet,
   getCurrentWalletConnected,
   getNetworkName,
-} from "../utils/interact.js";
+} from "../pages/utils/interact.js";
 import Image from "next/image";
 
 const NavLink = ({ title, href }) => (
