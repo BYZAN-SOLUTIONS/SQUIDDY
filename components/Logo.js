@@ -1,12 +1,8 @@
 import React from "react";
-import { Box, Text } from "@chakra-ui/react";
+import Image from "next/image";
 
-export default function Logo(props) {
+export default function Logo() {
   return (
-    <Box {...props}>
-      <Text fontSize="lg" fontWeight="bold">
-        Logo
-      </Text>
-    </Box>
+    <Image src={"/squidradient.png"} alt="Loader" width="200" height="100" />
   );
 }

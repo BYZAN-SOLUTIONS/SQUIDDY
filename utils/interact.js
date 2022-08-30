@@ -7,16 +7,16 @@ export const getNetworkName = async () => {
         chainId = "Wrong Network";
         break;
       case "42":
-        chainId = "Wrong Network";
+        chainId = "Kovan";
         break;
       case "3":
-        chainId = "Wrong Network";
+        chainId = "Ropsten";
         break;
       case "4":
-        chainId = "Wrong Network";
+        chainId = "Rinkeby";
         break;
       case "5":
-        chainId = "Wrong Network";
+        chainId = "Goerli ";
         break;
       case "1337":
         chainId = "Local Host";
@@ -26,6 +26,7 @@ export const getNetworkName = async () => {
         break;
 
       default:
+        chainId = "Wrong Network";
         break;
     }
 

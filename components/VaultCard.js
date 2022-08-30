@@ -2,63 +2,189 @@ import React from "react";
 import {
   Box,
   Flex,
-  AspectRatio,
   Image,
   Text,
-  Link,
   Button,
   Stack,
+  Container,
+  Spacer,
 } from "@chakra-ui/react";
+import VaultCards from "../styles/VaultCards.module.css";
 
 function VaultCard(props) {
-  const { name, symbol, token, icon } = props;
+  const { name, symbol, token, icon, strategy, manager, tlv, assetAddress } =
+    props;
+
+  const trimAddress = (address) => {
+    return address.slice(0, 6) + "..." + address.slice(-3);
+  };
 
   return (
     <Box
       p={4}
       display={{ md: "flex" }}
-      maxWidth="32rem"
+      width="25rem"
       borderWidth={1}
       margin={2}
+      borderRadius={8}
+      className={VaultCards.card}
     >
-      <AspectRatio ratio={1 / 1}>
-        <Image
-          maxWidth="200px"
-          margin="auto"
-          src="https://picsum.photos/id/237/250/250"
-          alt="Woman paying for a purchase"
-        />
-      </AspectRatio>
       <Stack
         align={{ base: "center", md: "stretch" }}
         textAlign={{ base: "center", md: "left" }}
       >
-        <Image maxWidth="200px" margin="auto" src={icon} alt="icon" />
-        <Text
-          fontWeight="bold"
-          textTransform="uppercase"
-          fontSize="lg"
-          letterSpacing="wide"
-          color="teal.600"
+        {/* Vault Name & Symbol */}
+        <Flex alignItems={"center"}>
+          <Text
+            fontWeight="bold"
+            textTransform="uppercase"
+            fontSize="lg"
+            letterSpacing="wide"
+            color="teal.600"
+            paddingRight={1}
+          >
+            {name}
+          </Text>
+
+          <Text
+            textTransform="uppercase"
+            fontSize="sm"
+            letterSpacing="wide"
+            color="teal.600"
+          >
+            {`(${symbol})`}
+          </Text>
+        </Flex>
+        {/* Vault Manager Address */}
+        <Box
+          p={4}
+          display={{ md: "flex" }}
+          width="23rem"
+          borderWidth={1}
+          margin={2}
+          borderRadius={8}
+          onClick={() =>
+            window.open(`https://etherscan.io/address/${manager}`, "_blank")
+          }
+          cursor="pointer"
         >
-          {name}
-        </Text>
-        <Link
-          my={1}
-          display="block"
-          fontSize="md"
-          lineHeight="normal"
-          fontWeight="semibold"
-          href="#"
+          <Text
+            fontWeight="bold"
+            textTransform="uppercase"
+            fontSize="sm"
+            letterSpacing="wide"
+            color="teal.600"
+            paddingRight={2}
+            width={"50%"}
+          >
+            Vault Manager:
+          </Text>
+
+          <Text
+            textTransform="uppercase"
+            fontSize="sm"
+            letterSpacing="wide"
+            color="teal.600"
+            width={"50%"}
+            textAlign={"right"}
+          >
+            {trimAddress(manager)}
+          </Text>
+        </Box>
+
+        <Box
+          p={4}
+          display={{ md: "flex" }}
+          width="23rem"
+          borderWidth={1}
+          margin={2}
+          borderRadius={8}
+          onClick={() =>
+            window.open(`https://etherscan.io/address/${manager}`, "_blank")
+          }
+          cursor="pointer"
         >
-          {symbol}
-        </Link>
-        <Text my={2} color="gray.500">
-          {token}
-        </Text>
-        <Button maxWidth="100px" my={2}>
-          More!
-        </Button>
+          <>
+            <Text
+              fontWeight="bold"
+              textTransform="uppercase"
+              fontSize="sm"
+              letterSpacing="wide"
+              color="teal.600"
+              paddingRight={2}
+              width={"60%"}
+            >
+              Total Locked Value:
+            </Text>
+            <Text
+              textTransform="uppercase"
+              fontSize="sm"
+              letterSpacing="wide"
+              color="teal.600"
+              width={"40%"}
+              textAlign={"right"}
+            >
+              {tlv}
+            </Text>
+          </>
+        </Box>
+        <Box
+          p={4}
+          display={{ md: "flex" }}
+          width="23rem"
+          borderWidth={1}
+          margin={2}
+          borderRadius={8}
+          alignItems={"center"}
+          onClick={() =>
+            window.open(
+              `https://etherscan.io/address/${assetAddress}`,
+              "_blank"
+            )
+          }
+          cursor="pointer"
+          zIndex={1}
+        >
+          <Container width={"70%"} pl={0}>
+            <Text
+              fontWeight="bold"
+              textTransform="uppercase"
+              fontSize="sm"
+              letterSpacing="wide"
+              color="teal.600"
+              paddingRight={2}
+            >
+              Underlying Asset:
+            </Text>
+          </Container>
+
+          <Container width={"30%"} textAlign={"center"}>
+            <Flex pr={0}>
+              <Text m={2} color="gray.500">
+                {token}
+              </Text>
+              <Image
+                maxWidth="200px"
+                margin="auto"
+                src={icon}
+                alt="icon"
+                pr={0}
+              />
+            </Flex>
+          </Container>
+        </Box>
+
+        {/* Buttons */}
+        <Flex>
+          <Button py={2} my={2} onClick={() => window.open(strategy, "_blank")}>
+            Strategy
+          </Button>
+          <Spacer />
+
+          <Button my={2} py={2}>
+            Select
+          </Button>
+        </Flex>
       </Stack>
     </Box>
   );
