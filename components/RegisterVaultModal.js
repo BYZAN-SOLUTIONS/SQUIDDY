@@ -18,14 +18,14 @@ const RegisterVaultModal = ({ isOpen, onClose }) => {
         <ModalHeader>Deploy ERC4626 Vault Contract</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
-          <RegisterVaultForm />
+          <RegisterVaultForm onClose={onClose} />
         </ModalBody>
 
-        <ModalFooter>
-          <Button colorScheme="blue" mr={3} onClick={onClose}>
+        {/* <ModalFooter>
+          <Button colorScheme="blue" mr={3} onClick={handleSubmit}>
             Deploy
           </Button>
-        </ModalFooter>
+        </ModalFooter> */}
       </ModalContent>
     </Modal>
   );

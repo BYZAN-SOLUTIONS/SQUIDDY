@@ -110,9 +110,10 @@ export default function NavBar() {
     }
   };
 
-  const metamaskWindow = async () => {
-    console.log("metamask window");
-    await window.ethereum.enable();
+  const handleSubmit = (e) => {
+    console.log("submit");
+    e.preventDefault();
+    onClose();
   };
 
   return (
@@ -144,19 +145,19 @@ export default function NavBar() {
               walletAddress={walletAddress}
             ></ConnectButton>
 
-            <Button
-              leftIcon={<AiOutlineBlock />}
-              onClick={metamaskWindow}
-              mx={2}
-            >
+            <Button leftIcon={<AiOutlineBlock />} mx={2}>
               {networkName}
             </Button>
-            <Button onClick={toggleColorMode}>{switchModeIcons()}</Button>
+            {/* <Button onClick={toggleColorMode}>{switchModeIcons()}</Button> */}
             <h3>{status}</h3>
           </Flex>
         </Flex>
       </Box>
-      <RegisterVaultModal isOpen={isOpen} onClose={onClose} />
+      <RegisterVaultModal
+        isOpen={isOpen}
+        onClose={onClose}
+        handleSubmit={handleSubmit}
+      />
     </>
   );
 }

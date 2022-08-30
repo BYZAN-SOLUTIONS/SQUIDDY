@@ -18,7 +18,7 @@ import { ethers } from "ethers";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import { initializeProvider } from "@metamask/providers";
 
-const RegisterVaultForm = () => {
+const RegisterVaultForm = ({ onClose }) => {
   const [name, setName] = useState("");
   const [symbol, setSymbol] = useState("");
   const [asset, setAsset] = useState("");
@@ -26,10 +26,12 @@ const RegisterVaultForm = () => {
 
   const handleSubmit = async () => {
     setHasSubmitted(true);
+    onClose();
 
     if (name === "" || symbol === "" || asset === "") {
       return;
     }
+    console.log(name, symbol, asset);
 
     // const data = { name, symbol, signer };
 
@@ -84,15 +86,15 @@ const RegisterVaultForm = () => {
               </FormHelperText>
             )}
           </FormControl>
-          {/* <Button
-              width="full"
-              mt={4}
-              onClick={() => {
-                handleSubmit();
-              }}
-            >
-              Deploy Contract
-            </Button> */}
+          <Button
+            width="full"
+            my={4}
+            onClick={() => {
+              handleSubmit();
+            }}
+          >
+            Deploy Contract
+          </Button>
         </form>
       </Box>
     </>

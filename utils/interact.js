@@ -4,7 +4,7 @@ export const getNetworkName = async () => {
 
     switch (chainId) {
       case "1":
-        chainId = "Wrong Network";
+        chainId = "Mainnet";
         break;
       case "42":
         chainId = "Kovan";

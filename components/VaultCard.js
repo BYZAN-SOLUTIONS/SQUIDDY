@@ -16,7 +16,7 @@ function VaultCard(props) {
     props;
 
   const trimAddress = (address) => {
-    return address.slice(0, 6) + "..." + address.slice(-3);
+    return address.slice(0, 5) + "..." + address.slice(-4);
   };
 
   return (
@@ -62,7 +62,7 @@ function VaultCard(props) {
           width="23rem"
           borderWidth={1}
           margin={2}
-          borderRadius={8}
+          className={VaultCards.button}
           onClick={() =>
             window.open(`https://etherscan.io/address/${manager}`, "_blank")
           }
@@ -98,7 +98,7 @@ function VaultCard(props) {
           width="23rem"
           borderWidth={1}
           margin={2}
-          borderRadius={8}
+          className={VaultCards.button}
           onClick={() =>
             window.open(`https://etherscan.io/address/${manager}`, "_blank")
           }
@@ -134,7 +134,7 @@ function VaultCard(props) {
           width="23rem"
           borderWidth={1}
           margin={2}
-          borderRadius={8}
+          className={VaultCards.button}
           alignItems={"center"}
           onClick={() =>
             window.open(
@@ -182,7 +182,7 @@ function VaultCard(props) {
           <Spacer />
 
           <Button my={2} py={2}>
-            Select
+            Invest
           </Button>
         </Flex>
       </Stack>

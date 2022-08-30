@@ -8,7 +8,7 @@ export default function Main() {
   return (
     <>
       <NavBar />
-      <Grid templateColumns="repeat(3, 1fr)" gap={2} p="4">
+      <Grid templateColumns="repeat(3, 1fr)" gap={6} ml={12}>
         {vaults.map((vault, index) => (
           <GridItem key={index}>
             <VaultCard
