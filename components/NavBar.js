@@ -1,7 +1,6 @@
 import {
   Box,
   Flex,
-  Link,
   Button,
   useDisclosure,
   useColorModeValue,
@@ -20,14 +19,25 @@ import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
 import { BsShieldLockFill } from "react-icons/bs";
 import { FaUserTie } from "react-icons/fa";
 import { AiOutlineBlock } from "react-icons/ai";
+import { HiOutlineLightBulb } from "react-icons/hi";
 import RegisterVaultModal from "../components/RegisterVaultModal";
+import StrategyModal from "../components/StrategyModal";
 import { MdAddModerator } from "react-icons/md";
 import { useRecoilState } from "recoil";
 import { myVaults } from "../recoil/atoms.js";
 
 export default function NavBar() {
   const { colorMode, toggleColorMode } = useColorMode();
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const {
+    isOpen: isCustomVaultOpen,
+    onOpen: onCustomVaultOpen,
+    onClose: onCustomVaultClose,
+  } = useDisclosure();
+  const {
+    isOpen: isStrategyOpen,
+    onOpen: onStrategyOpen,
+    onClose: onStrategyClose,
+  } = useDisclosure();
   const [walletAddress, setWallet] = useState("");
   const [status, setStatus] = useState("");
   const [networkName, setNetworkName] = useState("");
@@ -150,8 +160,19 @@ export default function NavBar() {
             >
               All Vaults{" "}
             </Button>
-            <Button leftIcon={<MdAddModerator />} onClick={onOpen} mx={2}>
+            <Button
+              leftIcon={<MdAddModerator />}
+              onClick={onCustomVaultOpen}
+              mx={2}
+            >
               Create Custom Vault
+            </Button>
+            <Button
+              leftIcon={<HiOutlineLightBulb />}
+              onClick={onStrategyOpen}
+              mx={2}
+            >
+              Strategies
             </Button>
           </Flex>
           <Flex alignItems={"center"}>
@@ -170,8 +191,13 @@ export default function NavBar() {
         </Flex>
       </Box>
       <RegisterVaultModal
-        isOpen={isOpen}
-        onClose={onClose}
+        isOpen={isCustomVaultOpen}
+        onClose={onCustomVaultClose}
+        handleSubmit={handleSubmit}
+      />
+      <StrategyModal
+        isOpen={isStrategyOpen}
+        onClose={onStrategyClose}
         handleSubmit={handleSubmit}
       />
     </>
