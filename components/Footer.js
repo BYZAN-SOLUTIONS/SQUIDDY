@@ -7,11 +7,8 @@ import {
   PopoverTrigger,
   PopoverContent,
   PopoverHeader,
-  PopoverBody,
-  PopoverFooter,
   PopoverArrow,
   PopoverCloseButton,
-  PopoverAnchor,
   Avatar,
 } from "@chakra-ui/react";
 import * as React from "react";
@@ -214,26 +211,23 @@ export default function Footer() {
                   <Text pl={2}>Twitter</Text>
                 </Flex>
               </PopoverHeader>
-              {/* <PopoverHeader>
+              <PopoverHeader>
                 <Flex
                   alignItems={"center"}
                   cursor={"pointer"}
                   onClick={() =>
-                    window.open(
-                      `https://www.linkedin.com/in/conor-gallagher-182955213/`,
-                      "_blank"
-                    )
+                    window.open(`https://twitter.com/Byzan_Solutions`, "_blank")
                   }
                 >
                   <Avatar
                     size="md"
                     name="Conor Gallagher"
                     mr={2}
-                    src="https://media-exp1.licdn.com/dms/image/C4D03AQF7GMWOXZoujA/profile-displayphoto-shrink_800_800/0/1661183112550?e=1667433600&v=beta&t=APlLn0jvDCegOjDofEe-rg10PtQVEJqiCc-BdwmeKGw"
+                    src="https://pbs.twimg.com/profile_images/1432045673130741761/-zyaGkhI_400x400.jpg"
                   />{" "}
-                  Conor Gallagher
+                  @Byzan_Solutions
                 </Flex>
-              </PopoverHeader> */}
+              </PopoverHeader>
               <PopoverHeader>
                 <Flex
                   alignItems={"center"}
@@ -248,7 +242,7 @@ export default function Footer() {
                     mr={2}
                     src="https://pbs.twimg.com/profile_images/1518377329306783747/Ra6f8mU9_400x400.jpg"
                   />
-                  Jason Schwarz
+                  @passandscore
                 </Flex>
               </PopoverHeader>
             </PopoverContent>

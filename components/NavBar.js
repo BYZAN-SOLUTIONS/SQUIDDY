@@ -22,6 +22,8 @@ import { FaUserTie } from "react-icons/fa";
 import { AiOutlineBlock } from "react-icons/ai";
 import RegisterVaultModal from "../components/RegisterVaultModal";
 import { MdAddModerator } from "react-icons/md";
+import { useRecoilState } from "recoil";
+import { myVaults } from "../recoil/atoms.js";
 
 export default function NavBar() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -30,6 +32,8 @@ export default function NavBar() {
   const [status, setStatus] = useState("");
   const [networkName, setNetworkName] = useState("");
   const [metamaskInstalled, setMetamaskInstalled] = useState(false);
+  const [updateMyVaultsState, setUpdateMyVaultsState] =
+    useRecoilState(myVaults);
 
   useEffect(() => {
     async function getWallet() {
@@ -116,6 +120,14 @@ export default function NavBar() {
     onClose();
   };
 
+  const showMyVaults = () => {
+    setUpdateMyVaultsState(true);
+  };
+
+  const showAllVaults = () => {
+    setUpdateMyVaultsState(false);
+  };
+
   return (
     <>
       <Box bg={useColorModeValue("grey.100", "black.900")} p={6}>
@@ -128,11 +140,15 @@ export default function NavBar() {
           />
 
           <Flex marginLeft="10rem">
-            <Button leftIcon={<FaUserTie />} mx={2}>
+            <Button leftIcon={<FaUserTie />} mx={2} onClick={showMyVaults}>
               My Vaults{" "}
             </Button>
-            <Button leftIcon={<BsShieldLockFill />} mx={2}>
-              Vaults{" "}
+            <Button
+              leftIcon={<BsShieldLockFill />}
+              mx={2}
+              onClick={showAllVaults}
+            >
+              All Vaults{" "}
             </Button>
             <Button leftIcon={<MdAddModerator />} onClick={onOpen} mx={2}>
               Create Custom Vault
