@@ -21,6 +21,7 @@ export default function Main() {
             {result.map((vault, index) => (
               <GridItem key={index}>
                 <VaultCard
+                  key={index}
                   name={vault.name}
                   symbol={vault.symbol}
                   token={vault.token}
@@ -29,6 +30,7 @@ export default function Main() {
                   manager={vault.manager}
                   tlv={vault.tlv}
                   assetAddress={vault.assetAddress}
+                  isOwner={true}
                 />
               </GridItem>
             ))}
@@ -60,6 +62,7 @@ export default function Main() {
                 manager={vault.manager}
                 tlv={vault.tlv}
                 assetAddress={vault.assetAddress}
+                isOwner={false}
               />
             </GridItem>
           ))}

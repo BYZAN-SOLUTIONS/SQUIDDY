@@ -14,7 +14,7 @@ const StrategyModal = ({ isOpen, onClose }) => {
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
       <ModalContent>
-        <ModalHeader>Stock Strategies</ModalHeader>
+        <ModalHeader>Flashloan Strategies</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
           <StrategyList onClose={onClose} />

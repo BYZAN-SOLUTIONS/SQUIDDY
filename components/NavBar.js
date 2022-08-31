@@ -25,7 +25,6 @@ import StrategyModal from "../components/StrategyModal";
 import { MdAddModerator } from "react-icons/md";
 import { useRecoilState } from "recoil";
 import { myVaults } from "../recoil/atoms.js";
-
 export default function NavBar() {
   const { colorMode, toggleColorMode } = useColorMode();
   const {
@@ -44,7 +43,6 @@ export default function NavBar() {
   const [metamaskInstalled, setMetamaskInstalled] = useState(false);
   const [updateMyVaultsState, setUpdateMyVaultsState] =
     useRecoilState(myVaults);
-
   useEffect(() => {
     async function getWallet() {
       const { address, status } = await getCurrentWalletConnected();

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Flex,
@@ -8,15 +8,34 @@ import {
   Stack,
   Container,
   Spacer,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
 } from "@chakra-ui/react";
 import VaultCards from "../styles/VaultCards.module.css";
 
 function VaultCard(props) {
-  const { name, symbol, token, icon, strategy, manager, tlv, assetAddress } =
-    props;
+  const [hideStrategy, setHideStrategy] = useState(false);
+  const {
+    name,
+    symbol,
+    token,
+    icon,
+    strategy,
+    manager,
+    tlv,
+    assetAddress,
+    isOwner,
+  } = props;
 
   const trimAddress = (address) => {
     return address.slice(0, 5) + "..." + address.slice(-4);
+  };
+
+  const handleStrategyClick = (e) => {
+    console.log(e);
   };
 
   return (
@@ -55,6 +74,7 @@ function VaultCard(props) {
             {`(${symbol})`}
           </Text>
         </Flex>
+
         {/* Vault Manager Address */}
         <Box
           p={4}
@@ -92,6 +112,7 @@ function VaultCard(props) {
           </Text>
         </Box>
 
+        {/* Total Locked Value */}
         <Box
           p={4}
           display={{ md: "flex" }}
@@ -128,6 +149,8 @@ function VaultCard(props) {
             </Text>
           </>
         </Box>
+
+        {/* Underlying Asset */}
         <Box
           p={4}
           display={{ md: "flex" }}
@@ -174,17 +197,65 @@ function VaultCard(props) {
           </Container>
         </Box>
 
-        {/* Buttons */}
-        <Flex>
-          <Button py={2} my={2} onClick={() => window.open(strategy, "_blank")}>
-            Strategy
-          </Button>
-          <Spacer />
+        {/* Strategy Details */}
+        <Accordion allowMultiple>
+          <AccordionItem>
+            <h2>
+              <AccordionButton>
+                <Box flex="1" textAlign="left">
+                  Strategy
+                </Box>
+                <AccordionIcon />
+              </AccordionButton>
+            </h2>
+            <AccordionPanel pb={4}>
+              <Box
+                p={4}
+                display={{ md: "flex" }}
+                // width="23rem"
+                borderWidth={1}
+                margin={2}
+                className={VaultCards.button}
+                onClick={() => {
+                  window.open(
+                    `https://etherscan.io/address/${strategy.contract}`,
+                    "_blank"
+                  );
+                }}
+                cursor="pointer"
+              >
+                <Text
+                  fontWeight="bold"
+                  textTransform="uppercase"
+                  fontSize="sm"
+                  letterSpacing="wide"
+                  color="teal.600"
+                  paddingRight={2}
+                  width={"50%"}
+                >
+                  {strategy.name}
+                </Text>
 
-          <Button my={2} py={2}>
-            Invest
-          </Button>
-        </Flex>
+                <Text
+                  textTransform="uppercase"
+                  fontSize="sm"
+                  letterSpacing="wide"
+                  color="teal.600"
+                  width={"50%"}
+                  textAlign={"right"}
+                >
+                  {trimAddress(strategy.contract)}
+                </Text>
+              </Box>
+            </AccordionPanel>
+          </AccordionItem>
+        </Accordion>
+
+        {/* Buttons */}
+
+        <Button my={2} py={2} hidden={isOwner}>
+          Invest
+        </Button>
       </Stack>
     </Box>
   );
