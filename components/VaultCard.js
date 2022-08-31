@@ -13,6 +13,8 @@ import {
   AccordionButton,
   AccordionPanel,
   AccordionIcon,
+  Link,
+  ExternalLinkIcon,
 } from "@chakra-ui/react";
 import VaultCards from "../styles/VaultCards.module.css";
 
@@ -198,61 +200,91 @@ function VaultCard(props) {
         </Box>
 
         {/* Strategy Details */}
+        <Container width={"70%"} pl={0}>
+          <Text
+            fontWeight="bold"
+            textTransform="uppercase"
+            fontSize="sm"
+            letterSpacing="wide"
+            color="teal.600"
+            paddingRight={2}
+          >
+            Strategy Details:
+          </Text>
+        </Container>
         <Accordion allowMultiple>
           <AccordionItem>
             <h2>
               <AccordionButton>
                 <Box flex="1" textAlign="left">
-                  Strategy
+                  Name
                 </Box>
                 <AccordionIcon />
               </AccordionButton>
             </h2>
             <AccordionPanel pb={4}>
-              <Box
-                p={4}
-                display={{ md: "flex" }}
-                // width="23rem"
-                borderWidth={1}
-                margin={2}
-                className={VaultCards.button}
-                onClick={() => {
-                  window.open(
-                    `https://etherscan.io/address/${strategy.contract}`,
-                    "_blank"
-                  );
-                }}
-                cursor="pointer"
+              <Text
+                fontWeight="bold"
+                textTransform="uppercase"
+                fontSize="sm"
+                letterSpacing="wide"
+                color="teal.600"
+                paddingRight={2}
+                width={"50%"}
               >
-                <Text
-                  fontWeight="bold"
-                  textTransform="uppercase"
-                  fontSize="sm"
-                  letterSpacing="wide"
-                  color="teal.600"
-                  paddingRight={2}
-                  width={"50%"}
-                >
-                  {strategy.name}
-                </Text>
+                {strategy.name}
+              </Text>
+            </AccordionPanel>
+          </AccordionItem>
 
-                <Text
-                  textTransform="uppercase"
-                  fontSize="sm"
-                  letterSpacing="wide"
-                  color="teal.600"
-                  width={"50%"}
-                  textAlign={"right"}
+          <AccordionItem>
+            <h2>
+              <AccordionButton>
+                <Box flex="1" textAlign="left">
+                  Description
+                </Box>
+                <AccordionIcon />
+              </AccordionButton>
+            </h2>
+            <AccordionPanel pb={4}>
+              <Text
+                fontWeight="bold"
+                textTransform="uppercase"
+                fontSize="sm"
+                letterSpacing="wide"
+                color="teal.600"
+                paddingRight={2}
+              >
+                {strategy.description}
+              </Text>
+            </AccordionPanel>
+          </AccordionItem>
+
+          <AccordionItem>
+            <h2>
+              <AccordionButton>
+                <Box flex="1" textAlign="left">
+                  Contract Address
+                </Box>
+                <AccordionIcon />
+              </AccordionButton>
+            </h2>
+            <AccordionPanel pb={4}>
+              <Text>
+                View this strategy on Etherscan:{" "}
+                <Link
+                  color="teal.500"
+                  href={`https://etherscan.io/address/${strategy.contract}`}
+                  isExternal
                 >
                   {trimAddress(strategy.contract)}
-                </Text>
-              </Box>
+                </Link>
+              </Text>
             </AccordionPanel>
           </AccordionItem>
         </Accordion>
 
         {/* Buttons */}
-
         <Button my={2} py={2} hidden={isOwner}>
           Invest
         </Button>

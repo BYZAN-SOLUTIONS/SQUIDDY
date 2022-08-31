@@ -1,10 +1,11 @@
-import { Grid, GridItem, Flex, Text } from "@chakra-ui/react";
+import { Grid, GridItem, Flex, Text, Container } from "@chakra-ui/react";
 import NavBar from "../components/NavBar";
 import VaultCard from "../components/VaultCard";
 import { vaults } from "../data";
 import Footer from "../components/Footer";
 import { useRecoilValue } from "recoil";
 import { myVaults } from "../recoil/atoms.js";
+import Home from "../styles/Home.module.css";
 
 export default function Main() {
   const currentMyVaultsState = useRecoilValue(myVaults);
@@ -47,7 +48,7 @@ export default function Main() {
   };
 
   return (
-    <>
+    <div className={Home.wrapper}>
       <NavBar />
       {!currentMyVaultsState ? (
         <Grid templateColumns="repeat(3, 1fr)" gap={6} ml={12}>
@@ -71,6 +72,6 @@ export default function Main() {
         filteredVaults()
       )}
       <Footer />
-    </>
+    </div>
   );
 }

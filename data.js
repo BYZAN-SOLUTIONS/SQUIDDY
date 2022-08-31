@@ -8,6 +8,8 @@ export const vaults = [
     strategy: {
       name: "LionFeast",
       contract: "0x69c482217E7F3BAF25A0C99E3D2e9525BFA544F0",
+      description:
+        "The flashloan bot gets the prices of each Uniswap fork and implements flashloan when it finds an arbitrage opportunity.",
     },
     manager: "0x5A7648b6320F69bD64647393294E3662e63Ad3d8",
     tlv: "23,012",
@@ -22,6 +24,8 @@ export const vaults = [
     strategy: {
       name: "MoonKing",
       contract: "0x69c482217E7F3BAF25A0C99E3D2e9525BFA544F0",
+      description:
+        "The flashloan bot gets the prices of each Uniswap fork and implements flashloan when it finds an arbitrage opportunity.",
     },
     manager: "0x69c482217E7F3BAF25A0C99E3D2e9525BFA544F0",
     tlv: "1,977,876",
@@ -36,6 +40,8 @@ export const vaults = [
     strategy: {
       name: "TimeWarp",
       contract: "0x69c482217E7F3BAF25A0C99E3D2e9525BFA544F0",
+      description:
+        "The flashloan bot gets the prices of each Uniswap fork and implements flashloan when it finds an arbitrage opportunity.",
     },
     manager: "0x70557CF93c108c936541eb5A98c18aa0967724E9",
     tlv: "1,992",
@@ -47,9 +53,13 @@ export const stockStrategies = [
   {
     name: "JuicyBottle",
     contract: "0x69c482217E7F3BAF25A0C99E3D2e9525BFA544F0",
+    description:
+      "The flashloan bot gets the prices of each Uniswap fork and implements flashloan when it finds an arbitrage opportunity.",
   },
   {
     name: "EnchantedTurkey",
     contract: "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+    description:
+      "The flashloan bot gets the prices of each Uniswap fork and implements flashloan when it finds an arbitrage opportunity.",
   },
 ];

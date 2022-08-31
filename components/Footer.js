@@ -26,6 +26,7 @@ export default function Footer() {
         bottom: 0,
         right: 0,
         backgroundColor: "#1F3944",
+        zIndex: -1,
       }}
     >
       <Container>
