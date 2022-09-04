@@ -40,6 +40,10 @@ function VaultCard(props) {
     console.log(e);
   };
 
+  const handleInvestClick = async (e) => {
+    console.log(e);
+  };
+
   return (
     <Box
       p={4}
@@ -285,7 +289,7 @@ function VaultCard(props) {
         </Accordion>
 
         {/* Buttons */}
-        <Button my={2} py={2} hidden={isOwner}>
+        <Button my={2} py={2} hidden={isOwner} onClick={handleInvestClick}>
           Invest
         </Button>
       </Stack>

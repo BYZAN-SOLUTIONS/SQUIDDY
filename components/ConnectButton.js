@@ -12,7 +12,7 @@ const ConnectButton = ({
   return (
     <div>
       {metamaskInstalled && (
-        <Button variant="outline-primary" onClick={connectWalletPressed}>
+        <Button variant="outline" onClick={connectWalletPressed}>
           {walletAddress.length > 0 ? (
             "Connected: " + trimAddress(walletAddress)
           ) : (

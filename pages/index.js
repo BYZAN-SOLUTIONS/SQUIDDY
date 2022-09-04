@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Grid, GridItem, Flex, Text, Container } from "@chakra-ui/react";
 import NavBar from "../components/NavBar";
 import VaultCard from "../components/VaultCard";
@@ -9,6 +10,34 @@ import Home from "../styles/Home.module.css";
 
 export default function Main() {
   const currentMyVaultsState = useRecoilValue(myVaults);
+  const [walletAddress, setWalletAddress] = useState("");
+
+  useEffect(() => {
+    const walletAddress = localStorage.getItem("walletAddress");
+    setWalletAddress(walletAddress);
+  }, []);
+
+  const userNotLoggedIn = () => {
+    return (
+      <div className={Home.container}>
+        <Flex
+          direction="column"
+          align="center"
+          justify="center"
+          height="100vh"
+          width="100vw"
+        >
+          <Text fontSize="6xl" fontWeight="bold">
+            Pick a vault, connect your wallet, and start earning!
+          </Text>
+          <Text fontSize="2xl" fontWeight="bold">
+            Squiddy is a decentralized protocol that allows Ethereum users to
+            earn yield on their assets by depositing them into a vault.
+          </Text>
+        </Flex>
+      </div>
+    );
+  };
 
   const filteredVaults = () => {
     const userWallet = localStorage.getItem("walletAddress");
@@ -50,7 +79,9 @@ export default function Main() {
   return (
     <div className={Home.wrapper}>
       <NavBar />
-      {!currentMyVaultsState ? (
+      {!walletAddress ? (
+        userNotLoggedIn()
+      ) : !currentMyVaultsState ? (
         <Grid templateColumns="repeat(3, 1fr)" gap={6} ml={12}>
           {vaults.map((vault, index) => (
             <GridItem key={index}>
