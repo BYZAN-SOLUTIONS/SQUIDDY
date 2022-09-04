@@ -16,9 +16,8 @@ import {
 import NavBar from "../components/NavBar";
 import Web3Modal from "web3modal";
 import { ethers } from "ethers";
-import WalletConnectProvider from "@walletconnect/web3-provider";
-import { initializeProvider } from "@metamask/providers";
-import axios from "axios";
+import { vaultFactoryAddress } from "../config";
+import VaultFactory from "../artifacts/contracts/VaultFactory.sol/VaultFactory.json";
 
 const RegisterVaultForm = ({ onClose }) => {
   const [name, setName] = useState("");
@@ -40,23 +39,36 @@ const RegisterVaultForm = ({ onClose }) => {
     if (name === "" || symbol === "" || asset === "" || strategy === "") {
       return;
     }
-    onClose();
     console.log(name, symbol, asset, strategy);
-    const isVerified = await checkForVerifiedContract();
-    console.log("isVerified", isVerified);
 
-    //confirm the contract is verified on etherscan
-    if (!isVerified.SourceCode) {
-      toast({
-        position: "top-left",
-        title: "Strategy Error",
-        description: "Contract must be verfied on Etherscan.",
-        status: "error",
-        duration: 9000,
-        isClosable: true,
-      });
-      return;
-    }
+    const web3Modal = new Web3Modal();
+    console.log("web3Modal", web3Modal);
+    const connection = await web3Modal.connect();
+    console.log("connection", connection);
+    const provider = new ethers.providers.Web3Provider(connection);
+    const signer = provider.getSigner();
+    console.log("signer", signer);
+    const walletAddress = await signer.getAddress();
+    console.log("walletAddress", walletAddress);
+
+    let vaultContract = new ethers.Contract(
+      vaultFactoryAddress,
+      VaultFactory.abi,
+      signer
+    );
+
+    let transaction = await vaultContract.buildVault(
+      name,
+      symbol,
+      strategy,
+      walletAddress,
+      asset
+    );
+
+    let tx = await transaction.wait();
+    let event = tx.events[0];
+    let vaultBeaconProxyAddress = event.args[2];
+    console.log("vaultBeaconProxyAddress", vaultBeaconProxyAddress);
 
     toast({
       position: "top-left",
@@ -67,20 +79,7 @@ const RegisterVaultForm = ({ onClose }) => {
       isClosable: true,
     });
 
-    // const data = { name, symbol, signer };
-
-    // let result = await axios.post(`/api/deploy-contract`, data);
-    // console.log("result", result);
-  };
-
-  const checkForVerifiedContract = async () => {
-    const url = `https://api.etherscan.io/api?module=contract&action=getsourcecode&address=${strategy}&apikey=TYZNDM8J4M25PSW75GX8DM3RJUW5YWINPH`;
-
-    //Successfully verified on etherscan (not a strategy)
-    //0xBB9bc244D798123fDe783fCc1C72d3Bb8C189413
-
-    const res = await axios.get(url);
-    return res.data.result[0];
+    onClose();
   };
 
   return (
@@ -122,11 +121,15 @@ const RegisterVaultForm = ({ onClose }) => {
               placeholder="Select Asset"
               onChange={(e) => setAsset(e.target.value)}
             >
-              <option>Dai</option>
-              <option>Link</option>
+              <option value="0x6B175474E89094C44Da98b954EedeAC495271d0F">
+                Dai
+              </option>
+              <option value="0x514910771AF9Ca656af840dff83E8264EcF986CA">
+                Link
+              </option>
             </Select>
             {isStrategyError && hasSubmitted && (
-              <FormErrorMessage>Underlying ssset is required.</FormErrorMessage>
+              <FormErrorMessage>Underlying asset is required.</FormErrorMessage>
             )}
           </FormControl>
 

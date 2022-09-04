@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.16+commit.07a7930e"
+		"version": "0.8.8+commit.dddeac2f"
 	},
 	"language": "Solidity",
 	"output": {
@@ -288,6 +288,34 @@
 						"type": "uint256"
 					}
 				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_underlying",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_symbol",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "_decimals",
+						"type": "uint8"
+					}
+				],
+				"name": "initializeERC4626",
+				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
@@ -708,7 +736,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"ERC4626.sol": "ERC4626"
+			"contracts/ERC4626.sol": "ERC4626"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -722,23 +750,23 @@
 		"remappings": []
 	},
 	"sources": {
-		"ERC20.sol": {
-			"keccak256": "0x0870f8599106d74f36387c5d2dff32350fe9a9a54864391d2f0ab7ee571e4ba3",
+		"contracts/ERC20.sol": {
+			"keccak256": "0x95ede73c02c84c29435c361cd1a3ddb8aee89ba502b1cb073aadc9377791c6ff",
 			"license": "AGPL-3.0-only",
 			"urls": [
-				"bzz-raw://2d3840e0f836a3a6a37908aa633e82f15875ca9b052781ff6dba32189da402c6",
-				"dweb:/ipfs/QmNVKg7oSmna2Edm9YHUpZSbNH2vJCh4E4zXg3kebgLivj"
+				"bzz-raw://496d71d6651d03343fc77efbc02b1c4cf64d2b83036b7489759dc19dfa7c5792",
+				"dweb:/ipfs/QmQAeHkxT4CM3GyYn5JVYQB3ZuSV7NDAZzUbBuQ98Uwx5B"
 			]
 		},
-		"ERC4626.sol": {
-			"keccak256": "0x65bebde2f9cdee8cb4474e363253bf31d3f4e4b683e7617ea122eda7bf56e9c7",
+		"contracts/ERC4626.sol": {
+			"keccak256": "0xe96ec766135334365f8bf14e197efd5f57e27928502d4c99218d2e448d3cea6d",
 			"license": "AGPL-3.0-only",
 			"urls": [
-				"bzz-raw://7fcd8c80086ef95da392ee45019612e6181d696569b8cb8246ec2880dc3d55b5",
-				"dweb:/ipfs/QmaXGGrGHikNCFvzGSahHLJMjnZYQb8VRSsjgNYXQU7qqf"
+				"bzz-raw://a8ceb64f433d0c2ff2b0c87c6abe1f27e4b8c59631ed942dd89890b33f4bea44",
+				"dweb:/ipfs/QmYBYfoCNN65FAXjLh5mMJu7VMMeaHRhzYnJHSS7FQjp1T"
 			]
 		},
-		"FixedPointMathLib.sol": {
+		"contracts/FixedPointMathLib.sol": {
 			"keccak256": "0x4613ceaa017d64f94096c03a8c87f184e634829e3631e8be4be41fc8cdbd643d",
 			"license": "AGPL-3.0-only",
 			"urls": [
@@ -746,12 +774,20 @@
 				"dweb:/ipfs/QmV6Hg4KeXt8VvyVvL9UgDfqULb2LcKz4Z81Zr5A7wsNmK"
 			]
 		},
-		"SafeTransferLib.sol": {
+		"contracts/SafeTransferLib.sol": {
 			"keccak256": "0x1d723274225340b2a6938ca667bf22871a3d6e9f84f0db46a9d3875425b5ba8a",
 			"license": "AGPL-3.0-only",
 			"urls": [
 				"bzz-raw://930022c587bf6605a4a0bc4ba3952a99025b1d11bf0d38ea566833dc8b454043",
 				"dweb:/ipfs/QmdJVdma9uXAeTpqT1hSuymwZ8DfEKDinv8Wh2panKdehq"
+			]
+		},
+		"hardhat/console.sol": {
+			"keccak256": "0x72b6a1d297cd3b033d7c2e4a7e7864934bb767db6453623f1c3082c6534547f4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a8cb8681076e765c214e0d51cac989325f6b98e315eaae06ee0cbd5a9f084763",
+				"dweb:/ipfs/QmNWGHi4zmjxQTYN3NMGnJd49jBT5dE4bxTdWEaDuJrC6N"
 			]
 		}
 	},

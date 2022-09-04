@@ -58,6 +58,7 @@
 			"convertToShares(uint256)": "c6e6f592",
 			"decimals()": "313ce567",
 			"deposit(uint256,address)": "6e553f65",
+			"initializeERC4626(address,string,string,uint8)": "422f596f",
 			"maxDeposit(address)": "402d267d",
 			"maxMint(address)": "c63d75b6",
 			"maxRedeem(address)": "d905777e",
@@ -363,6 +364,34 @@
 					"type": "uint256"
 				}
 			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_underlying",
+					"type": "address"
+				},
+				{
+					"internalType": "string",
+					"name": "_name",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "_symbol",
+					"type": "string"
+				},
+				{
+					"internalType": "uint8",
+					"name": "_decimals",
+					"type": "uint8"
+				}
+			],
+			"name": "initializeERC4626",
+			"outputs": [],
 			"stateMutability": "nonpayable",
 			"type": "function"
 		},

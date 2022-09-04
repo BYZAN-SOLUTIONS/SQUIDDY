@@ -9,9 +9,6 @@ export const getNetworkName = async () => {
       case "42":
         chainId = "Kovan";
         break;
-      case "3":
-        chainId = "Ropsten";
-        break;
       case "4":
         chainId = "Rinkeby";
         break;

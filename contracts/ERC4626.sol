@@ -4,6 +4,7 @@ pragma solidity >=0.8.0;
 import {ERC20} from "./ERC20.sol";
 import {SafeTransferLib} from "./SafeTransferLib.sol";
 import {FixedPointMathLib} from "./FixedPointMathLib.sol";
+import "hardhat/console.sol";
 
 /// @notice Minimal ERC4626 tokenized Vault implementation.
 /// @author Solmate (https://github.com/transmissions11/solmate/blob/main/src/mixins/ERC4626.sol)
@@ -34,15 +35,17 @@ abstract contract ERC4626 is ERC20 {
                                IMMUTABLES
     //////////////////////////////////////////////////////////////*/
 
-    ERC20 public immutable asset;
+    ERC20 public asset;
 
-    constructor(
-        ERC20 _asset,
+    function initializeERC4626(
+        address _underlying,
         string memory _name,
         string memory _symbol,
         uint8 _decimals
-    ) ERC20(_name, _symbol, _decimals) {
-        asset = _asset;
+    ) public {
+        asset = ERC20(_underlying);
+
+        initializeERC20(_name, _symbol, _decimals);
     }
 
     /*//////////////////////////////////////////////////////////////

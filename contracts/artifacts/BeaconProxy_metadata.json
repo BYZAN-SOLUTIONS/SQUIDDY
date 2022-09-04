@@ -1,0 +1,176 @@
+{
+	"compiler": {
+		"version": "0.8.8+commit.dddeac2f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "beacon",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"stateMutability": "payable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "previousAdmin",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "newAdmin",
+						"type": "address"
+					}
+				],
+				"name": "AdminChanged",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "beacon",
+						"type": "address"
+					}
+				],
+				"name": "BeaconUpgraded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "implementation",
+						"type": "address"
+					}
+				],
+				"name": "Upgraded",
+				"type": "event"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "fallback"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"details": "This contract implements a proxy that gets the implementation address for each call from an {UpgradeableBeacon}. The beacon address is stored in storage slot `uint256(keccak256('eip1967.proxy.beacon')) - 1`, so that it doesn't conflict with the storage layout of the implementation behind the proxy. _Available since v3.4._",
+			"kind": "dev",
+			"methods": {
+				"constructor": {
+					"details": "Initializes the proxy with `beacon`. If `data` is nonempty, it's used as data in a delegate call to the implementation returned by the beacon. This will typically be an encoded function call, and allows initializing the storage of the proxy like a Solidity constructor. Requirements: - `beacon` must be a contract with the interface {IBeacon}."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/BeaconProxy.sol": "BeaconProxy"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Address.sol": {
+			"keccak256": "0x1b65ed9f69f81012c4a65bd2399521f674a8091ee116a20e7ca91da279d29550",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c09507fdd578d2c6961cc0764783cefff54af06212743e4a1fcafcdee54d2f19",
+				"dweb:/ipfs/QmTHWcTE5chBYV62NAtnni4gZLFS8SfxV2YaY5bWCzMJTC"
+			]
+		},
+		"contracts/BeaconProxy.sol": {
+			"keccak256": "0x0a11ec4dd780729bd8efe295f651d9422002cc3ad9a68c7b008738a90bda2ec7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8639d2cc3aa824c45d9ea55d7321686d80d90ab54370563aa07d8c6c7aa70aac",
+				"dweb:/ipfs/QmNQE5Bmezbw8rovRUEFnSENbaVn1dRGsWv2aXGVmoZ8at"
+			]
+		},
+		"contracts/ERC1967Upgrade.sol": {
+			"keccak256": "0xc8d768b7f92b7391de772001ea9586edac5b78111e0a6240746e133c49221cbb",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://05409eca7dc14b88b450f469e1a46f4b1f51f7e37722a42bba096546bfa27bfa",
+				"dweb:/ipfs/QmYgcWFSz4U8Y1fcv4aimeBgPM3egcxF9jCYr4L91NFVEr"
+			]
+		},
+		"contracts/IBeacon.sol": {
+			"keccak256": "0x8cb861c2f4dbac08ba24014ce13b6fa70fbd891530633999c8ce02af39a13158",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c9eb7a0d9df3f8fcc46e124ec8d327426e5ed97837adc3c46439e1da3417825f",
+				"dweb:/ipfs/QmZSeWBBXWXwcVrPrdETPSUisWLNJxFjX1yWK9yZ5P6DT1"
+			]
+		},
+		"contracts/Proxy.sol": {
+			"keccak256": "0x039a7f543ad75ac3abc1e13668eda1ce712b36a41c1fb58f32defb8fda3e13be",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://024c1f7e3e74f47a837d762f2fef80439c8939a29af56d546876c0c516677d6a",
+				"dweb:/ipfs/QmSmSZUG1RKgx7VuCcv8T6fvmYSxZfa6ygY5TLBnYGQg1G"
+			]
+		},
+		"contracts/StorageSlot.sol": {
+			"keccak256": "0x89a353a9d99919bac8af80b203462d2e564e2a85f75cde6ff7280f5fc1ef7bf0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5a4e06497fff8b6b2d1e94cd403ea8d427c96fef7ab79dad6baad6abcbfc2e9b",
+				"dweb:/ipfs/QmbuKy66pdAzabXHf163L87r41fb95oPF6tWsa4UAAq5UT"
+			]
+		},
+		"contracts/draft-IERC1822.sol": {
+			"keccak256": "0xa911e54126fe060ce3ff3098fc2d996d23331a85d18d519e5f586dcd6fc1d728",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8d4357647c3dced862b0ad2072fbd1cd5d2a9275682d92ebcb29db483726b799",
+				"dweb:/ipfs/QmUiRFuVPVJDeeQiDa9RS5SFNmPzYyp7rGRpnptUFcksZa"
+			]
+		},
+		"hardhat/console.sol": {
+			"keccak256": "0x72b6a1d297cd3b033d7c2e4a7e7864934bb767db6453623f1c3082c6534547f4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a8cb8681076e765c214e0d51cac989325f6b98e315eaae06ee0cbd5a9f084763",
+				"dweb:/ipfs/QmNWGHi4zmjxQTYN3NMGnJd49jBT5dE4bxTdWEaDuJrC6N"
+			]
+		}
+	},
+	"version": 1
+}

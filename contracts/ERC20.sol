@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 pragma solidity >=0.8.0;
+import "hardhat/console.sol";
 
 /// @notice Modern and gas efficient ERC20 + EIP-2612 implementation.
 /// @author Solmate (https://github.com/transmissions11/solmate/blob/main/src/tokens/ERC20.sol)
@@ -26,7 +27,7 @@ abstract contract ERC20 {
 
     string public symbol;
 
-    uint8 public immutable decimals;
+    uint8 public decimals;
 
     /*//////////////////////////////////////////////////////////////
                               ERC20 STORAGE
@@ -42,9 +43,9 @@ abstract contract ERC20 {
                             EIP-2612 STORAGE
     //////////////////////////////////////////////////////////////*/
 
-    uint256 internal immutable INITIAL_CHAIN_ID;
+    uint256 internal INITIAL_CHAIN_ID;
 
-    bytes32 internal immutable INITIAL_DOMAIN_SEPARATOR;
+    bytes32 internal INITIAL_DOMAIN_SEPARATOR;
 
     mapping(address => uint256) public nonces;
 
@@ -52,11 +53,11 @@ abstract contract ERC20 {
                                CONSTRUCTOR
     //////////////////////////////////////////////////////////////*/
 
-    constructor(
+    function initializeERC20(
         string memory _name,
         string memory _symbol,
         uint8 _decimals
-    ) {
+    ) internal {
         name = _name;
         symbol = _symbol;
         decimals = _decimals;

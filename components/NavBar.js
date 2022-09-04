@@ -183,7 +183,7 @@ export default function NavBar() {
             <Button leftIcon={<AiOutlineBlock />} mx={2}>
               {networkName}
             </Button>
-            {/* <Button onClick={toggleColorMode}>{switchModeIcons()}</Button> */}
+            <Button onClick={toggleColorMode}>{switchModeIcons()}</Button>
             <h3>{status}</h3>
           </Flex>
         </Flex>

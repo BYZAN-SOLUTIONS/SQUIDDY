@@ -7,18 +7,30 @@
 const hre = require("hardhat");
 
 async function main() {
-  const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-  const ONE_YEAR_IN_SECS = 365 * 24 * 60 * 60;
-  const unlockTime = currentTimestampInSeconds + ONE_YEAR_IN_SECS;
+  const SquiddyCore = await hre.ethers.getContractFactory("SquiddyCore");
+  const VaultFactory = await hre.ethers.getContractFactory("VaultFactory");
 
-  const lockedAmount = hre.ethers.utils.parseEther("1");
+  // Deploy SquiddyCore
+  const squiddyCore = await SquiddyCore.deploy();
+  await squiddyCore.deployed();
+  console.log("SquiddyCore deployed to:", squiddyCore.address);
 
-  const Lock = await hre.ethers.getContractFactory("Lock");
-  const lock = await Lock.deploy(unlockTime, { value: lockedAmount });
+  // Deploy VaultFactory
+  const vaultFactory = await VaultFactory.deploy(squiddyCore.address);
+  await vaultFactory.deployed();
+  console.log("VaultFactory deployed to:", vaultFactory.address);
 
-  await lock.deployed();
+  squiddyCore.grantRole(
+    await squiddyCore.VAULT_FACTORY_ROLE(),
+    vaultFactory.address
+  );
 
-  console.log("Lock with 1 ETH deployed to:", lock.address);
+  const hasRole = await squiddyCore.hasRole(
+    await vaultFactory.VAULT_FACTORY_ROLE(),
+    vaultFactory.address
+  );
+
+  console.log(`VaultFactory has VAULT_FACTORY_ROLE: ${hasRole}`);
 }
 
 // We recommend this pattern to be able to use async/await everywhere

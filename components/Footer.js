@@ -26,7 +26,7 @@ export default function Footer() {
         bottom: 0,
         right: 0,
         backgroundColor: "#1F3944",
-        zIndex: -1,
+        zIndex: 1,
       }}
     >
       <Container>
@@ -169,7 +169,7 @@ export default function Footer() {
                     mr={2}
                     src="https://avatars.githubusercontent.com/u/102080035?s=200&v=4"
                   />{" "}
-                  BYZAN-SOLUTIONS
+                  AE-0H
                 </Flex>
               </PopoverHeader>
               <PopoverHeader>

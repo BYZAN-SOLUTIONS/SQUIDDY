@@ -1518,9 +1518,9 @@
   dependencies:
     "glob" "7.1.7"
 
-"@next/swc-darwin-x64@12.2.2":
-  "integrity" "sha512-dztDtvfkhUqiqpXvrWVccfGhLe44yQ5tQ7B4tBfnsOR6vxzI9DNPHTlEOgRN9qDqTAcFyPxvg86mn4l8bB9Jcw=="
-  "resolved" "https://registry.npmjs.org/@next/swc-darwin-x64/-/swc-darwin-x64-12.2.2.tgz"
+"@next/swc-darwin-arm64@12.2.2":
+  "integrity" "sha512-JCoGySHKGt+YBk7xRTFGx1QjrnCcwYxIo3yGepcOq64MoiocTM3yllQWeOAJU2/k9MH0+B5E9WUSme4rOCBbpA=="
+  "resolved" "https://registry.npmjs.org/@next/swc-darwin-arm64/-/swc-darwin-arm64-12.2.2.tgz"
   "version" "12.2.2"
 
 "@noble/hashes@~1.1.1", "@noble/hashes@1.1.2":
@@ -9291,10 +9291,10 @@
     "web3-shh" "1.7.4"
     "web3-utils" "1.7.4"
 
-"web3modal@^1.9.8":
-  "integrity" "sha512-ruYsh4TV1SUAljBW/Pd4itW2idKlo9xr/g2dKhBDdaafWNCVdpaK92cQ7EM53rg2KQHWJhqj1IThbv7cPV7ayA=="
-  "resolved" "https://registry.npmjs.org/web3modal/-/web3modal-1.9.8.tgz"
-  "version" "1.9.8"
+"web3modal@^1.9.9":
+  "integrity" "sha512-ML1C4xH+JTSHHkKbjxuF+f5B3cDUOCnrdQZ8Mlzippq7zRKHf3NBeuIvDdNjtVclJ2S4zYYVmVqRWrgB11ej8A=="
+  "resolved" "https://registry.npmjs.org/web3modal/-/web3modal-1.9.9.tgz"
+  "version" "1.9.9"
   dependencies:
     "detect-browser" "^5.1.0"
     "prop-types" "^15.7.2"
