@@ -60,6 +60,107 @@
 				"type": "event"
 			},
 			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "previousAdminRole",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "newAdminRole",
+						"type": "bytes32"
+					}
+				],
+				"name": "RoleAdminChanged",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					}
+				],
+				"name": "RoleGranted",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					}
+				],
+				"name": "RoleRevoked",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "DEFAULT_ADMIN_ROLE",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "VAULT_ADMIN",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "VAULT_FACTORY_ROLE",
 				"outputs": [
@@ -112,6 +213,56 @@
 			},
 			{
 				"inputs": [],
+				"name": "fetchAllVaults",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "symbol",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "vaultAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "strategyAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "managerAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "assetAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "index",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct VaultFactory.VaultDetails[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "getBeacon",
 				"outputs": [
 					{
@@ -139,6 +290,148 @@
 			{
 				"inputs": [
 					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					}
+				],
+				"name": "getRoleAdmin",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "grantRole",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "hasRole",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint8",
+						"name": "index",
+						"type": "uint8"
+					}
+				],
+				"name": "removeVaultContract",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "removedVaults",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "_value",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "renounceRole",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "revokeRole",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes4",
+						"name": "interfaceId",
+						"type": "bytes4"
+					}
+				],
+				"name": "supportsInterface",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "address",
 						"name": "",
 						"type": "address"
@@ -156,14 +449,65 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "vaultId",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "_value",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "vaultId_to_isActive",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "vaultId_to_vaultAddress",
+				"outputs": [
 					{
 						"internalType": "address",
 						"name": "",
 						"type": "address"
 					}
 				],
-				"name": "vaultDetails",
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "vaultId_to_vaultDetails",
 				"outputs": [
 					{
 						"internalType": "string",
@@ -191,28 +535,14 @@
 						"type": "address"
 					},
 					{
+						"internalType": "address",
+						"name": "assetAddress",
+						"type": "address"
+					},
+					{
 						"internalType": "uint256",
 						"name": "index",
 						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"name": "vaultId_to_vaultAddress",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -221,7 +551,26 @@
 		],
 		"devdoc": {
 			"kind": "dev",
-			"methods": {},
+			"methods": {
+				"getRoleAdmin(bytes32)": {
+					"details": "Returns the admin role that controls `role`. See {grantRole} and {revokeRole}. To change a role's admin, use {_setRoleAdmin}."
+				},
+				"grantRole(bytes32,address)": {
+					"details": "Grants `role` to `account`. If `account` had not been already granted `role`, emits a {RoleGranted} event. Requirements: - the caller must have ``role``'s admin role. May emit a {RoleGranted} event."
+				},
+				"hasRole(bytes32,address)": {
+					"details": "Returns `true` if `account` has been granted `role`."
+				},
+				"renounceRole(bytes32,address)": {
+					"details": "Revokes `role` from the calling account. Roles are often managed via {grantRole} and {revokeRole}: this function's purpose is to provide a mechanism for accounts to lose their privileges if they are compromised (such as when a trusted device is misplaced). If the calling account had been revoked `role`, emits a {RoleRevoked} event. Requirements: - the caller must be `account`. May emit a {RoleRevoked} event."
+				},
+				"revokeRole(bytes32,address)": {
+					"details": "Revokes `role` from `account`. If `account` had been granted `role`, emits a {RoleRevoked} event. Requirements: - the caller must have ``role``'s admin role. May emit a {RoleRevoked} event."
+				},
+				"supportsInterface(bytes4)": {
+					"details": "See {IERC165-supportsInterface}."
+				}
+			},
 			"version": 1
 		},
 		"userdoc": {
@@ -303,11 +652,11 @@
 			]
 		},
 		"contracts/Address.sol": {
-			"keccak256": "0x15e924e2d57610d9448549abda069bcb5646096bde81104a3e91f51b53fe8b58",
+			"keccak256": "0x8692a39368669041b3d4bdbe1ffd69d7c5102fb7d65369df1800b32b61a99f2e",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://249f9265459957729aa42f7d61a3ea91ab3a8d43a9afa34802971afa5680e372",
-				"dweb:/ipfs/QmXL9LbnVoWMWXDX2CPk2JYo14KhAe5o8BPQ4N32khkKNT"
+				"bzz-raw://7b457791a5bd34f032bc1c78b7524cfdc19d54767fb2c1cc08ad4e7d659d7237",
+				"dweb:/ipfs/QmcsXxg691TmXDCx8ksBPvRFQA6SG3ZTrXdg9YiFjv8pXK"
 			]
 		},
 		"contracts/Beacon.sol": {
@@ -319,35 +668,35 @@
 			]
 		},
 		"contracts/BeaconProxy.sol": {
-			"keccak256": "0x0a11ec4dd780729bd8efe295f651d9422002cc3ad9a68c7b008738a90bda2ec7",
+			"keccak256": "0x5b028428f4afc0762783bfe5ab205707a3ec02a1fff38d3f948df05102d5083e",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://8639d2cc3aa824c45d9ea55d7321686d80d90ab54370563aa07d8c6c7aa70aac",
-				"dweb:/ipfs/QmNQE5Bmezbw8rovRUEFnSENbaVn1dRGsWv2aXGVmoZ8at"
+				"bzz-raw://154890b37f935ce181ff1ff4b439cf2224cd8b98a502a3753a97810e5be4fc33",
+				"dweb:/ipfs/QmZFQ7jdMqbEV31dbTy5jmC4akZBu2cfqU1k6uNBefezpw"
 			]
 		},
 		"contracts/ERC1967Upgrade.sol": {
-			"keccak256": "0x8f8d329408e7ad9e099c9829b509e82bb9001cceef32e14c2548e2e8e56e64b8",
+			"keccak256": "0xf106cfa151b78e22ae293a5aad9067009484840a585578859d576a86f6596ff7",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://860b658d6b4aed94f5d88282fe6da57ad329b64ac19715f9a1d8c5bc3454390d",
-				"dweb:/ipfs/QmY5EDMSwhjKWU9jj6sxiojQ4xpXitBSNGaGHEhJuBpTTx"
+				"bzz-raw://6c3355e1d9d10098872d4c9f68b2b3ae27a3ed01fc93dacbfb441c4164c6a873",
+				"dweb:/ipfs/QmW98PVvcNaxxA7XGb9TK5C4dHJ7fE9MGCkx3oFbjv8sR1"
 			]
 		},
 		"contracts/ERC20.sol": {
-			"keccak256": "0x95ede73c02c84c29435c361cd1a3ddb8aee89ba502b1cb073aadc9377791c6ff",
+			"keccak256": "0x3a47ccc5492cca068e1c22b11a474eb5c683eb30c5dec6cc9ef68cce139a8375",
 			"license": "AGPL-3.0-only",
 			"urls": [
-				"bzz-raw://496d71d6651d03343fc77efbc02b1c4cf64d2b83036b7489759dc19dfa7c5792",
-				"dweb:/ipfs/QmQAeHkxT4CM3GyYn5JVYQB3ZuSV7NDAZzUbBuQ98Uwx5B"
+				"bzz-raw://2f144f006320aded5e950652589b890d792d461eefbe199e5ca56521703ea8bb",
+				"dweb:/ipfs/QmXXTxsZp8gDRsXyMYiLB1x1eomZeydU2ofEdWsUQjgGkA"
 			]
 		},
 		"contracts/ERC4626.sol": {
-			"keccak256": "0xe96ec766135334365f8bf14e197efd5f57e27928502d4c99218d2e448d3cea6d",
+			"keccak256": "0xb89dd9fb12bf4f6fa9cec5c12d01d796c1f4fa7cc15589e4ad73c9c55481eaed",
 			"license": "AGPL-3.0-only",
 			"urls": [
-				"bzz-raw://a8ceb64f433d0c2ff2b0c87c6abe1f27e4b8c59631ed942dd89890b33f4bea44",
-				"dweb:/ipfs/QmYBYfoCNN65FAXjLh5mMJu7VMMeaHRhzYnJHSS7FQjp1T"
+				"bzz-raw://d0a6958b82f20beba46aac6b5b47ae562ba9457e607ee1c7850c67ee75d31bc0",
+				"dweb:/ipfs/QmYeSbRy7v6yCm1txZS9T3APEPNXFWA37Q3jBWsy3qLBeb"
 			]
 		},
 		"contracts/FixedPointMathLib.sol": {
@@ -415,11 +764,11 @@
 			]
 		},
 		"contracts/VaultFactory.sol": {
-			"keccak256": "0x2053cc4b8b104d41c325d2cb2ce4a1c732eae36ae905d76491928f259ce0d508",
+			"keccak256": "0xa6606fae0bd5b3e38935d11a34da409cb0b05a7519992425d7f6446d78eb9244",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://8c490a7f276a45d40230de41009c22e20d512808bb4c963b131726ff4c855ddc",
-				"dweb:/ipfs/QmWXqf99CWsaHQmqCDEXfrMMgmyG1jCaso8UZvcWTTPVdM"
+				"bzz-raw://0d3bafa7dfd9a6dfd06d7f240fbf4a3b06f568120dd14a0386520ed5d7414f6b",
+				"dweb:/ipfs/QmaBPPEuDuGGqhLqQgzycPT3fSFuk4MYxiJJ2Yjyp8mErH"
 			]
 		},
 		"contracts/draft-IERC1822.sol": {

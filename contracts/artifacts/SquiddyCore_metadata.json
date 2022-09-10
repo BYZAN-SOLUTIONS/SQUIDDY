@@ -1564,19 +1564,19 @@
 			]
 		},
 		"contracts/ERC20.sol": {
-			"keccak256": "0x95ede73c02c84c29435c361cd1a3ddb8aee89ba502b1cb073aadc9377791c6ff",
+			"keccak256": "0x3a47ccc5492cca068e1c22b11a474eb5c683eb30c5dec6cc9ef68cce139a8375",
 			"license": "AGPL-3.0-only",
 			"urls": [
-				"bzz-raw://496d71d6651d03343fc77efbc02b1c4cf64d2b83036b7489759dc19dfa7c5792",
-				"dweb:/ipfs/QmQAeHkxT4CM3GyYn5JVYQB3ZuSV7NDAZzUbBuQ98Uwx5B"
+				"bzz-raw://2f144f006320aded5e950652589b890d792d461eefbe199e5ca56521703ea8bb",
+				"dweb:/ipfs/QmXXTxsZp8gDRsXyMYiLB1x1eomZeydU2ofEdWsUQjgGkA"
 			]
 		},
 		"contracts/ERC4626.sol": {
-			"keccak256": "0xe96ec766135334365f8bf14e197efd5f57e27928502d4c99218d2e448d3cea6d",
+			"keccak256": "0xb89dd9fb12bf4f6fa9cec5c12d01d796c1f4fa7cc15589e4ad73c9c55481eaed",
 			"license": "AGPL-3.0-only",
 			"urls": [
-				"bzz-raw://a8ceb64f433d0c2ff2b0c87c6abe1f27e4b8c59631ed942dd89890b33f4bea44",
-				"dweb:/ipfs/QmYBYfoCNN65FAXjLh5mMJu7VMMeaHRhzYnJHSS7FQjp1T"
+				"bzz-raw://d0a6958b82f20beba46aac6b5b47ae562ba9457e607ee1c7850c67ee75d31bc0",
+				"dweb:/ipfs/QmYeSbRy7v6yCm1txZS9T3APEPNXFWA37Q3jBWsy3qLBeb"
 			]
 		},
 		"contracts/FixedPointMathLib.sol": {

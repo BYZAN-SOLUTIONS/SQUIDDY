@@ -38,6 +38,41 @@
         "Address"
       ]
     },
+    "/Users/jasonschwarz/encode_mev_hack/node_modules/hardhat/console.sol": {
+      "lastModificationDate": 1661702056496,
+      "contentHash": "cc4777addd464ea56fa35b1c45df0591",
+      "sourceName": "hardhat/console.sol",
+      "solcConfig": {
+        "version": "0.8.8",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.4.22 <0.9.0"
+      ],
+      "artifacts": [
+        "console"
+      ]
+    },
     "/Users/jasonschwarz/encode_mev_hack/contracts/ERC1967Upgrade.sol": {
       "lastModificationDate": 1662464739926,
       "contentHash": "f7fedc43c36f6a3fc12d0fe017e20ef2",
@@ -150,7 +185,7 @@
       ]
     },
     "/Users/jasonschwarz/encode_mev_hack/contracts/StorageSlot.sol": {
-      "lastModificationDate": 1662313439872,
+      "lastModificationDate": 1662565715195,
       "contentHash": "5f9268b7c0582c1b6db689b11128d170",
       "sourceName": "contracts/StorageSlot.sol",
       "solcConfig": {
@@ -184,197 +219,8 @@
         "StorageSlot"
       ]
     },
-    "/Users/jasonschwarz/encode_mev_hack/contracts/BeaconProxy.sol": {
-      "lastModificationDate": 1662464739965,
-      "contentHash": "857d7348a1536fd034718b2b14a1987d",
-      "sourceName": "contracts/BeaconProxy.sol",
-      "solcConfig": {
-        "version": "0.8.8",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./IBeacon.sol",
-        "./Proxy.sol",
-        "./ERC1967Upgrade.sol",
-        "hardhat/console.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.8"
-      ],
-      "artifacts": [
-        "BeaconProxy"
-      ]
-    },
-    "/Users/jasonschwarz/encode_mev_hack/contracts/Proxy.sol": {
-      "lastModificationDate": 1662313280363,
-      "contentHash": "1458861af3a02d7033b6565024fd30cd",
-      "sourceName": "contracts/Proxy.sol",
-      "solcConfig": {
-        "version": "0.8.8",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.8"
-      ],
-      "artifacts": [
-        "Proxy"
-      ]
-    },
-    "/Users/jasonschwarz/encode_mev_hack/contracts/VaultFactory.sol": {
-      "lastModificationDate": 1662464739927,
-      "contentHash": "3583942bc9195df6cb95f2624006394e",
-      "sourceName": "contracts/VaultFactory.sol",
-      "solcConfig": {
-        "version": "0.8.8",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/utils/Counters.sol",
-        "./BeaconProxy.sol",
-        "./Beacon.sol",
-        "./SquiddyCore.sol",
-        "hardhat/console.sol"
-      ],
-      "versionPragmas": [
-        "0.8.8"
-      ],
-      "artifacts": [
-        "VaultFactory"
-      ]
-    },
-    "/Users/jasonschwarz/encode_mev_hack/node_modules/@openzeppelin/contracts/utils/Counters.sol": {
-      "lastModificationDate": 1661702056777,
-      "contentHash": "74654e3ae5d7f39555055dfe244dab7a",
-      "sourceName": "@openzeppelin/contracts/utils/Counters.sol",
-      "solcConfig": {
-        "version": "0.8.8",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "Counters"
-      ]
-    },
-    "/Users/jasonschwarz/encode_mev_hack/contracts/Beacon.sol": {
-      "lastModificationDate": 1662313929209,
-      "contentHash": "ec8dc5a80bae5aa36584dba0b248ed3d",
-      "sourceName": "contracts/Beacon.sol",
-      "solcConfig": {
-        "version": "0.8.8",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./UpgradeableBeacon.sol",
-        "./Ownable.sol"
-      ],
-      "versionPragmas": [
-        "0.8.8"
-      ],
-      "artifacts": [
-        "Beacon"
-      ]
-    },
     "/Users/jasonschwarz/encode_mev_hack/contracts/SquiddyCore.sol": {
-      "lastModificationDate": 1662464608915,
+      "lastModificationDate": 1662811883192,
       "contentHash": "1fa5516d96e02d36d7156a94ef153023",
       "sourceName": "contracts/SquiddyCore.sol",
       "solcConfig": {
@@ -411,80 +257,6 @@
       ],
       "artifacts": [
         "SquiddyCore"
-      ]
-    },
-    "/Users/jasonschwarz/encode_mev_hack/contracts/UpgradeableBeacon.sol": {
-      "lastModificationDate": 1662313062721,
-      "contentHash": "28408c11a67b7164c9e8960a88b08c10",
-      "sourceName": "contracts/UpgradeableBeacon.sol",
-      "solcConfig": {
-        "version": "0.8.8",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./IBeacon.sol",
-        "./Ownable.sol",
-        "./Address.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.8"
-      ],
-      "artifacts": [
-        "UpgradeableBeacon"
-      ]
-    },
-    "/Users/jasonschwarz/encode_mev_hack/contracts/Ownable.sol": {
-      "lastModificationDate": 1662317123569,
-      "contentHash": "5d0ba17932389d154a4a55f1329a4b2a",
-      "sourceName": "contracts/Ownable.sol",
-      "solcConfig": {
-        "version": "0.8.8",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "Ownable"
       ]
     },
     "/Users/jasonschwarz/encode_mev_hack/contracts/ERC20.sol": {
@@ -853,8 +625,271 @@
         "IERC165"
       ]
     },
+    "/Users/jasonschwarz/encode_mev_hack/contracts/VaultFactory.sol": {
+      "lastModificationDate": 1662835637313,
+      "contentHash": "8af310c5e2c946e4d1f5952b36596949",
+      "sourceName": "contracts/VaultFactory.sol",
+      "solcConfig": {
+        "version": "0.8.8",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/utils/Counters.sol",
+        "./BeaconProxy.sol",
+        "./Beacon.sol",
+        "./SquiddyCore.sol",
+        "@openzeppelin/contracts/access/AccessControl.sol"
+      ],
+      "versionPragmas": [
+        "0.8.8"
+      ],
+      "artifacts": [
+        "VaultFactory"
+      ]
+    },
+    "/Users/jasonschwarz/encode_mev_hack/node_modules/@openzeppelin/contracts/utils/Counters.sol": {
+      "lastModificationDate": 1661702056777,
+      "contentHash": "74654e3ae5d7f39555055dfe244dab7a",
+      "sourceName": "@openzeppelin/contracts/utils/Counters.sol",
+      "solcConfig": {
+        "version": "0.8.8",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Counters"
+      ]
+    },
+    "/Users/jasonschwarz/encode_mev_hack/contracts/BeaconProxy.sol": {
+      "lastModificationDate": 1662464739965,
+      "contentHash": "857d7348a1536fd034718b2b14a1987d",
+      "sourceName": "contracts/BeaconProxy.sol",
+      "solcConfig": {
+        "version": "0.8.8",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IBeacon.sol",
+        "./Proxy.sol",
+        "./ERC1967Upgrade.sol",
+        "hardhat/console.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "BeaconProxy"
+      ]
+    },
+    "/Users/jasonschwarz/encode_mev_hack/contracts/Beacon.sol": {
+      "lastModificationDate": 1662313929209,
+      "contentHash": "ec8dc5a80bae5aa36584dba0b248ed3d",
+      "sourceName": "contracts/Beacon.sol",
+      "solcConfig": {
+        "version": "0.8.8",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./UpgradeableBeacon.sol",
+        "./Ownable.sol"
+      ],
+      "versionPragmas": [
+        "0.8.8"
+      ],
+      "artifacts": [
+        "Beacon"
+      ]
+    },
+    "/Users/jasonschwarz/encode_mev_hack/contracts/Proxy.sol": {
+      "lastModificationDate": 1662406740457,
+      "contentHash": "1458861af3a02d7033b6565024fd30cd",
+      "sourceName": "contracts/Proxy.sol",
+      "solcConfig": {
+        "version": "0.8.8",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "Proxy"
+      ]
+    },
+    "/Users/jasonschwarz/encode_mev_hack/contracts/UpgradeableBeacon.sol": {
+      "lastModificationDate": 1662313062721,
+      "contentHash": "28408c11a67b7164c9e8960a88b08c10",
+      "sourceName": "contracts/UpgradeableBeacon.sol",
+      "solcConfig": {
+        "version": "0.8.8",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IBeacon.sol",
+        "./Ownable.sol",
+        "./Address.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "UpgradeableBeacon"
+      ]
+    },
+    "/Users/jasonschwarz/encode_mev_hack/contracts/Ownable.sol": {
+      "lastModificationDate": 1662317123569,
+      "contentHash": "5d0ba17932389d154a4a55f1329a4b2a",
+      "sourceName": "contracts/Ownable.sol",
+      "solcConfig": {
+        "version": "0.8.8",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Ownable"
+      ]
+    },
     "/Users/jasonschwarz/encode_mev_hack/contracts/Context.sol": {
-      "lastModificationDate": 1662312930177,
+      "lastModificationDate": 1662418809114,
       "contentHash": "e1db2844af7c7ed03c050a9cea079c96",
       "sourceName": "contracts/Context.sol",
       "solcConfig": {
@@ -886,41 +921,6 @@
       ],
       "artifacts": [
         "Context"
-      ]
-    },
-    "/Users/jasonschwarz/encode_mev_hack/node_modules/hardhat/console.sol": {
-      "lastModificationDate": 1661702056496,
-      "contentHash": "cc4777addd464ea56fa35b1c45df0591",
-      "sourceName": "hardhat/console.sol",
-      "solcConfig": {
-        "version": "0.8.8",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        ">=0.4.22 <0.9.0"
-      ],
-      "artifacts": [
-        "console"
       ]
     }
   }

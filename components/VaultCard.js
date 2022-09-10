@@ -7,14 +7,11 @@ import {
   Button,
   Stack,
   Container,
-  Spacer,
   Accordion,
   AccordionItem,
   AccordionButton,
   AccordionPanel,
   AccordionIcon,
-  Link,
-  ExternalLinkIcon,
 } from "@chakra-ui/react";
 import VaultCards from "../styles/VaultCards.module.css";
 
@@ -33,7 +30,9 @@ function VaultCard(props) {
   } = props;
 
   const trimAddress = (address) => {
-    return address.slice(0, 5) + "..." + address.slice(-4);
+    if (address) {
+      return address?.slice(0, 5) + "..." + address.slice(-4);
+    }
   };
 
   const handleStrategyClick = (e) => {
@@ -42,6 +41,28 @@ function VaultCard(props) {
 
   const handleInvestClick = async (e) => {
     console.log(e);
+  };
+
+  const strategyName = (strategyAddress) => {
+    if (strategyAddress) {
+      switch (strategyAddress) {
+        case "0x69c482217E7F3BAF25A0C99E3D2e9525BFA544F0":
+          return "JuicyBottle";
+        case "0x6B175474E89094C44Da98b954EedeAC495271d0F":
+          return "EnchantedTurkey";
+      }
+    }
+  };
+
+  const strategyDescription = (strategyAddress) => {
+    if (strategyAddress) {
+      switch (strategyAddress) {
+        case "0x69c482217E7F3BAF25A0C99E3D2e9525BFA544F0":
+          return "The flashloan bot gets the prices of each Uniswap fork and implements flashloan when it finds an arbitrage opportunity.";
+        case "0x6B175474E89094C44Da98b954EedeAC495271d0F":
+          return "The flashloan bot gets the prices of each Uniswap fork and implements flashloan when it finds an arbitrage opportunity.";
+      }
+    }
   };
 
   return (
@@ -221,68 +242,19 @@ function VaultCard(props) {
             <h2>
               <AccordionButton>
                 <Box flex="1" textAlign="left">
-                  Name
+                  {strategyName(strategy)}
                 </Box>
                 <AccordionIcon />
               </AccordionButton>
             </h2>
             <AccordionPanel pb={4}>
               <Text
-                fontWeight="bold"
-                textTransform="uppercase"
+                fontWeight="hairline"
                 fontSize="sm"
                 letterSpacing="wide"
-                color="teal.600"
-                paddingRight={2}
-                width={"50%"}
-              >
-                {strategy.name}
-              </Text>
-            </AccordionPanel>
-          </AccordionItem>
-
-          <AccordionItem>
-            <h2>
-              <AccordionButton>
-                <Box flex="1" textAlign="left">
-                  Description
-                </Box>
-                <AccordionIcon />
-              </AccordionButton>
-            </h2>
-            <AccordionPanel pb={4}>
-              <Text
-                fontWeight="bold"
-                textTransform="uppercase"
-                fontSize="sm"
-                letterSpacing="wide"
-                color="teal.600"
                 paddingRight={2}
               >
-                {strategy.description}
-              </Text>
-            </AccordionPanel>
-          </AccordionItem>
-
-          <AccordionItem>
-            <h2>
-              <AccordionButton>
-                <Box flex="1" textAlign="left">
-                  Contract Address
-                </Box>
-                <AccordionIcon />
-              </AccordionButton>
-            </h2>
-            <AccordionPanel pb={4}>
-              <Text>
-                View this strategy on Etherscan:{" "}
-                <Link
-                  color="teal.500"
-                  href={`https://etherscan.io/address/${strategy.contract}`}
-                  isExternal
-                >
-                  {trimAddress(strategy.contract)}
-                </Link>
+                {strategyDescription(strategy)}
               </Text>
             </AccordionPanel>
           </AccordionItem>

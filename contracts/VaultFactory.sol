@@ -5,20 +5,22 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 import "./BeaconProxy.sol";
 import "./Beacon.sol";
 import "./SquiddyCore.sol";
-import "hardhat/console.sol";
+import "@openzeppelin/contracts/access/AccessControl.sol";
 
-contract VaultFactory {
+contract VaultFactory is AccessControl {
     using Counters for Counters.Counter;
-    Counters.Counter private vaultId;
+    Counters.Counter public vaultId;
+    Counters.Counter public removedVaults;
 
     // index => proxyAddress
-    mapping(address => VaultDetails) public vaultDetails;
+    mapping(uint256 => VaultDetails) public vaultId_to_vaultDetails;
     mapping(address => address) public vaultAddress_to_strategyAddress;
     mapping(uint256 => address) public vaultId_to_vaultAddress;
-    VaultDetails[] allVaults;
+    mapping(uint256 => bool) public vaultId_to_isActive;
     Beacon private squiddyCoreBeacon;
     bytes32 public constant VAULT_FACTORY_ROLE =
         keccak256("VAULT_FACTORY_ROLE");
+    bytes32 public constant VAULT_ADMIN = keccak256("VAULT_ADMIN");
 
     event NewVault(
         string indexed name,
@@ -35,11 +37,14 @@ contract VaultFactory {
         address vaultAddress;
         address strategyAddress;
         address managerAddress;
+        address assetAddress;
         uint256 index;
     }
 
     constructor(address _SquiddyCore) {
         squiddyCoreBeacon = new Beacon(_SquiddyCore);
+        _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
+        _setupRole(VAULT_ADMIN, msg.sender);
     }
 
     function buildVault(
@@ -65,25 +70,26 @@ contract VaultFactory {
             )
         );
 
-        VaultDetails memory _vaultDetails = VaultDetails(
+        VaultDetails(
             _name,
             _symbol,
             address(vault),
             _strategyAddress,
             _managerAddress,
+            _assetAddress,
             _vaultId
         );
 
-        allVaults.push(_vaultDetails);
-
         vaultId_to_vaultAddress[_vaultId] = address(vault);
         vaultAddress_to_strategyAddress[address(vault)] = _strategyAddress;
-        vaultDetails[address(vault)] = VaultDetails(
+        vaultId_to_isActive[_vaultId] = true;
+        vaultId_to_vaultDetails[_vaultId] = VaultDetails(
             _name,
             _symbol,
             address(vault),
             _strategyAddress,
             _managerAddress,
+            _assetAddress,
             _vaultId
         );
 
@@ -103,5 +109,48 @@ contract VaultFactory {
 
     function getImplementation() public view returns (address) {
         return squiddyCoreBeacon.implementation();
+    }
+
+    function fetchAllVaults() public view returns (VaultDetails[] memory) {
+        uint256 vaultCount = vaultId.current();
+        uint256 currentVaultCount = vaultId.current() - removedVaults.current();
+        uint256 currentIndex = 0;
+
+        VaultDetails[] memory vaults = new VaultDetails[](currentVaultCount);
+
+        if (vaultCount == 0) {
+            return vaults;
+        }
+
+        for (uint256 i = 0; i < vaultCount; i++) {
+            bool status = vaultId_to_isActive[i + 1];
+            if (status == true) {
+                uint256 currentId = i + 1;
+                VaultDetails storage currentItem = vaultId_to_vaultDetails[
+                    currentId
+                ];
+                vaults[currentIndex] = currentItem;
+                currentIndex += 1;
+            }
+        }
+        return vaults;
+    }
+
+    function removeVaultContractFromFrontend(uint8 index) public {
+        require(
+            hasRole(VAULT_ADMIN, msg.sender),
+            "VaultFactory: must have vault admin role to remove vault"
+        );
+        uint256 vaultCount = vaultId.current();
+        require(
+            index <= vaultCount,
+            "VaultFactory: index must be less than vault count"
+        );
+        require(
+            vaultId_to_isActive[index],
+            "VaultFactory: vault already removed"
+        );
+        removedVaults.increment();
+        vaultId_to_isActive[index] = false;
     }
 }

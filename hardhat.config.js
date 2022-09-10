@@ -1,4 +1,5 @@
 require("@nomicfoundation/hardhat-toolbox");
+require("dotenv").config();
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -6,9 +7,13 @@ module.exports = {
     hardhat: {
       chainId: 1337,
     },
+    localhost: {
+      url: "http://localhost:8545",
+      chainId: 1337,
+    },
     goerli: {
-      url: `https://goerli.infura.io/v3/${process.env.INFURA_API_KEY}`,
-      accounts: [process.env.PRIVATE_KEY],
+      url: process.env.GOERLI_URL,
+      accounts: [process.env.GOERLI_PRIVATE_KEY],
     },
   },
   etherscan: {
