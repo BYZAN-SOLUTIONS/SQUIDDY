@@ -21,12 +21,10 @@ export default function Footer() {
       alignItems={"center"}
       justifyContent={"space-between"}
       style={{
-        position: "fixed",
         left: 0,
         bottom: 0,
         right: 0,
         backgroundColor: "#1F3944",
-        zIndex: 1,
       }}
     >
       <Container>

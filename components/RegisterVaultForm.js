@@ -70,12 +70,7 @@ const RegisterVaultForm = ({ onClose }) => {
     );
 
     setIsLoading(true);
-
-    let tx = await transaction.wait();
-    console.log("tx", tx);
-    let event = tx.events[0];
-    console.log("event", event);
-
+    await transaction.wait();
     onClose();
     setIsLoading(false);
 

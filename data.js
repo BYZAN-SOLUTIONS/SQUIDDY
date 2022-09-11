@@ -63,3 +63,25 @@ export const stockStrategies = [
       "The flashloan bot gets the prices of each Uniswap fork and implements flashloan when it finds an arbitrage opportunity.",
   },
 ];
+
+export const strategyStats = [
+  {
+    duration: "24 hrs",
+    percentage: "14.4%",
+    color: "red",
+    value: "2",
+  },
+  {
+    duration: "7 days",
+    percentage: "89.9%",
+    color: "green",
+    value: "34",
+  },
+  { duration: "30 days", percentage: "499.9%", color: "green", value: "299" },
+  {
+    duration: "Lifetime",
+    percentage: "1,030%",
+    color: "green",
+    value: "1,303",
+  },
+];

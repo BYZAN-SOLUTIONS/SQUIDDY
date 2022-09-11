@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Grid, GridItem, Flex, Text, Container } from "@chakra-ui/react";
 import NavBar from "../components/NavBar";
 import VaultCard from "../components/VaultCard";
-import { vaults } from "../data";
 import Footer from "../components/Footer";
 import { useRecoilValue } from "recoil";
 import { myVaults } from "../recoil/atoms.js";
@@ -94,6 +93,14 @@ export default function Main() {
     return tlv;
   };
 
+  const isOwner = (managerAddress) => {
+    const userWallet = localStorage.getItem("walletAddress");
+    if (managerAddress.toLowerCase() === userWallet.toLowerCase()) {
+      return true;
+    }
+    return false;
+  };
+
   const filteredVaults = () => {
     const userWallet = localStorage.getItem("walletAddress");
     if (userWallet) {
@@ -117,6 +124,8 @@ export default function Main() {
                   tlv={0}
                   assetAddress={vault.assetAddress}
                   isOwner={true}
+                  vaultAddress={vault.vaultAddress}
+                  index={index}
                 />
               </GridItem>
             ))}
@@ -133,32 +142,36 @@ export default function Main() {
   };
 
   return (
-    <div className={Home.wrapper}>
-      <NavBar />
-      {!walletAddress ? (
-        userNotLoggedIn()
-      ) : !currentMyVaultsState ? (
-        <Grid templateColumns="repeat(3, 1fr)" gap={6} ml={12}>
-          {allVaults.map((vault, index) => (
-            <GridItem key={index}>
-              <VaultCard
-                name={vault.name}
-                symbol={vault.symbol}
-                token={assetNames(vault.assetAddress)}
-                icon={assetIcons(vault.assetAddress)}
-                strategy={vault.strategyAddress}
-                manager={vault.managerAddress}
-                tlv={0}
-                assetAddress={vault.assetAddress}
-                isOwner={true}
-              />
-            </GridItem>
-          ))}
-        </Grid>
-      ) : (
-        filteredVaults()
-      )}
+    <>
+      <div className={Home.wrapper}>
+        <NavBar />
+        {!walletAddress ? (
+          userNotLoggedIn()
+        ) : !currentMyVaultsState ? (
+          <Grid templateColumns="repeat(3, 1fr)" gap={6} ml={12}>
+            {allVaults.map((vault, index) => (
+              <GridItem key={index}>
+                <VaultCard
+                  name={vault.name}
+                  symbol={vault.symbol}
+                  token={assetNames(vault.assetAddress)}
+                  icon={assetIcons(vault.assetAddress)}
+                  strategy={vault.strategyAddress}
+                  manager={vault.managerAddress}
+                  tlv={0}
+                  assetAddress={vault.assetAddress}
+                  isOwner={isOwner(vault.managerAddress)}
+                  vaultAddress={vault.vaultAddress}
+                  index={index}
+                />
+              </GridItem>
+            ))}
+          </Grid>
+        ) : (
+          filteredVaults()
+        )}
+      </div>
       <Footer />
-    </div>
+    </>
   );
 }
