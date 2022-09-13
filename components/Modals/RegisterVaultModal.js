@@ -8,7 +8,7 @@ import {
   ModalCloseButton,
   Button,
 } from "@chakra-ui/react";
-import RegisterVaultForm from "../components/RegisterVaultForm";
+import RegisterVaultForm from "../Forms/RegisterVaultForm";
 
 const RegisterVaultModal = ({ isOpen, onClose }) => {
   return (

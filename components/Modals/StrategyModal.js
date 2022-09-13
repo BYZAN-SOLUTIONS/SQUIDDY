@@ -7,7 +7,7 @@ import {
   ModalBody,
   ModalCloseButton,
 } from "@chakra-ui/react";
-import StrategyList from "./StrategyList";
+import StrategyList from "../StrategyList";
 
 const StrategyModal = ({ isOpen, onClose }) => {
   return (

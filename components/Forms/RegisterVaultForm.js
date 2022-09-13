@@ -15,8 +15,8 @@ import {
 } from "@chakra-ui/react";
 import Web3Modal from "web3modal";
 import { ethers } from "ethers";
-import { vaultFactoryAddress } from "../config";
-import VaultFactory from "../artifacts/contracts/VaultFactory.sol/VaultFactory.json";
+import { vaultFactoryAddress } from "../../config";
+import VaultFactory from "../../artifacts/contracts/VaultFactory.sol/VaultFactory.json";
 
 const RegisterVaultForm = ({ onClose }) => {
   const [name, setName] = useState("");
