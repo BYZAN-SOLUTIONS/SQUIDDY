@@ -1,8 +1,8 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "/Users/jasonschwarz/encode_mev_hack/contracts/Address.sol": {
-      "lastModificationDate": 1662464739927,
+    "/Users/ae0h/ae0hPro/encode_mev_hack/contracts/Address.sol": {
+      "lastModificationDate": 1663175939788,
       "contentHash": "54358266fce5c9fcd67d73ef1cec0d0e",
       "sourceName": "contracts/Address.sol",
       "solcConfig": {
@@ -25,6 +25,9 @@
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -38,8 +41,8 @@
         "Address"
       ]
     },
-    "/Users/jasonschwarz/encode_mev_hack/node_modules/hardhat/console.sol": {
-      "lastModificationDate": 1661702056496,
+    "/Users/ae0h/ae0hPro/encode_mev_hack/node_modules/hardhat/console.sol": {
+      "lastModificationDate": 1661984832703,
       "contentHash": "cc4777addd464ea56fa35b1c45df0591",
       "sourceName": "hardhat/console.sol",
       "solcConfig": {
@@ -62,6 +65,9 @@
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -73,8 +79,8 @@
         "console"
       ]
     },
-    "/Users/jasonschwarz/encode_mev_hack/contracts/ERC1967Upgrade.sol": {
-      "lastModificationDate": 1662464739926,
+    "/Users/ae0h/ae0hPro/encode_mev_hack/contracts/ERC1967Upgrade.sol": {
+      "lastModificationDate": 1663177667707,
       "contentHash": "f7fedc43c36f6a3fc12d0fe017e20ef2",
       "sourceName": "contracts/ERC1967Upgrade.sol",
       "solcConfig": {
@@ -97,6 +103,9 @@
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -114,8 +123,8 @@
         "ERC1967Upgrade"
       ]
     },
-    "/Users/jasonschwarz/encode_mev_hack/contracts/IBeacon.sol": {
-      "lastModificationDate": 1662312813840,
+    "/Users/ae0h/ae0hPro/encode_mev_hack/contracts/IBeacon.sol": {
+      "lastModificationDate": 1662562168483,
       "contentHash": "d22159dd03fecee0bd9ce4612ddc6434",
       "sourceName": "contracts/IBeacon.sol",
       "solcConfig": {
@@ -138,6 +147,9 @@
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -149,8 +161,8 @@
         "IBeacon"
       ]
     },
-    "/Users/jasonschwarz/encode_mev_hack/contracts/draft-IERC1822.sol": {
-      "lastModificationDate": 1662313389752,
+    "/Users/ae0h/ae0hPro/encode_mev_hack/contracts/draft-IERC1822.sol": {
+      "lastModificationDate": 1662562168492,
       "contentHash": "805822d5ff8bfdb7f4b0cf1570fb261b",
       "sourceName": "contracts/draft-IERC1822.sol",
       "solcConfig": {
@@ -173,6 +185,9 @@
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -184,8 +199,8 @@
         "IERC1822Proxiable"
       ]
     },
-    "/Users/jasonschwarz/encode_mev_hack/contracts/StorageSlot.sol": {
-      "lastModificationDate": 1662565715195,
+    "/Users/ae0h/ae0hPro/encode_mev_hack/contracts/StorageSlot.sol": {
+      "lastModificationDate": 1662796407702,
       "contentHash": "5f9268b7c0582c1b6db689b11128d170",
       "sourceName": "contracts/StorageSlot.sol",
       "solcConfig": {
@@ -208,6 +223,9 @@
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -219,8 +237,8 @@
         "StorageSlot"
       ]
     },
-    "/Users/jasonschwarz/encode_mev_hack/contracts/SquiddyCore.sol": {
-      "lastModificationDate": 1662811883192,
+    "/Users/ae0h/ae0hPro/encode_mev_hack/contracts/SquiddyCore.sol": {
+      "lastModificationDate": 1663179944269,
       "contentHash": "1fa5516d96e02d36d7156a94ef153023",
       "sourceName": "contracts/SquiddyCore.sol",
       "solcConfig": {
@@ -243,6 +261,9 @@
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -259,8 +280,8 @@
         "SquiddyCore"
       ]
     },
-    "/Users/jasonschwarz/encode_mev_hack/contracts/ERC20.sol": {
-      "lastModificationDate": 1662464739927,
+    "/Users/ae0h/ae0hPro/encode_mev_hack/contracts/ERC20.sol": {
+      "lastModificationDate": 1663175517058,
       "contentHash": "7c539d08648c2e04d93942a972c3c5e9",
       "sourceName": "contracts/ERC20.sol",
       "solcConfig": {
@@ -283,6 +304,9 @@
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -296,8 +320,8 @@
         "ERC20"
       ]
     },
-    "/Users/jasonschwarz/encode_mev_hack/contracts/ERC4626.sol": {
-      "lastModificationDate": 1662464739927,
+    "/Users/ae0h/ae0hPro/encode_mev_hack/contracts/ERC4626.sol": {
+      "lastModificationDate": 1663177667828,
       "contentHash": "8fc2a020bf14043ca8c6b0fda3398653",
       "sourceName": "contracts/ERC4626.sol",
       "solcConfig": {
@@ -320,6 +344,9 @@
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -336,8 +363,8 @@
         "ERC4626"
       ]
     },
-    "/Users/jasonschwarz/encode_mev_hack/node_modules/@openzeppelin/contracts/access/AccessControl.sol": {
-      "lastModificationDate": 1661702056770,
+    "/Users/ae0h/ae0hPro/encode_mev_hack/node_modules/@openzeppelin/contracts/access/AccessControl.sol": {
+      "lastModificationDate": 1661984831732,
       "contentHash": "e6ef731d275b1e7b2995f00fa56d9dab",
       "sourceName": "@openzeppelin/contracts/access/AccessControl.sol",
       "solcConfig": {
@@ -360,6 +387,9 @@
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -376,8 +406,8 @@
         "AccessControl"
       ]
     },
-    "/Users/jasonschwarz/encode_mev_hack/contracts/SafeTransferLib.sol": {
-      "lastModificationDate": 1661714410987,
+    "/Users/ae0h/ae0hPro/encode_mev_hack/contracts/SafeTransferLib.sol": {
+      "lastModificationDate": 1662328291742,
       "contentHash": "90460a264b732f384ac53e613a6d34a8",
       "sourceName": "contracts/SafeTransferLib.sol",
       "solcConfig": {
@@ -400,6 +430,9 @@
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -413,8 +446,8 @@
         "SafeTransferLib"
       ]
     },
-    "/Users/jasonschwarz/encode_mev_hack/contracts/FixedPointMathLib.sol": {
-      "lastModificationDate": 1661714410986,
+    "/Users/ae0h/ae0hPro/encode_mev_hack/contracts/FixedPointMathLib.sol": {
+      "lastModificationDate": 1662261160342,
       "contentHash": "a1f375ef68f7feb02802a568be7c01ba",
       "sourceName": "contracts/FixedPointMathLib.sol",
       "solcConfig": {
@@ -437,6 +470,9 @@
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -448,8 +484,8 @@
         "FixedPointMathLib"
       ]
     },
-    "/Users/jasonschwarz/encode_mev_hack/node_modules/@openzeppelin/contracts/access/IAccessControl.sol": {
-      "lastModificationDate": 1661702056770,
+    "/Users/ae0h/ae0hPro/encode_mev_hack/node_modules/@openzeppelin/contracts/access/IAccessControl.sol": {
+      "lastModificationDate": 1661984832205,
       "contentHash": "57c84298234411cea19c7c284d86be8b",
       "sourceName": "@openzeppelin/contracts/access/IAccessControl.sol",
       "solcConfig": {
@@ -472,6 +508,9 @@
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -483,8 +522,8 @@
         "IAccessControl"
       ]
     },
-    "/Users/jasonschwarz/encode_mev_hack/node_modules/@openzeppelin/contracts/utils/Context.sol": {
-      "lastModificationDate": 1661702056784,
+    "/Users/ae0h/ae0hPro/encode_mev_hack/node_modules/@openzeppelin/contracts/utils/Context.sol": {
+      "lastModificationDate": 1661984831817,
       "contentHash": "5f2c5c4b6af2dd4551027144797bc8be",
       "sourceName": "@openzeppelin/contracts/utils/Context.sol",
       "solcConfig": {
@@ -507,6 +546,9 @@
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -518,8 +560,8 @@
         "Context"
       ]
     },
-    "/Users/jasonschwarz/encode_mev_hack/node_modules/@openzeppelin/contracts/utils/Strings.sol": {
-      "lastModificationDate": 1661702056784,
+    "/Users/ae0h/ae0hPro/encode_mev_hack/node_modules/@openzeppelin/contracts/utils/Strings.sol": {
+      "lastModificationDate": 1661984832405,
       "contentHash": "cf46906c4035f51639a22265066a9e78",
       "sourceName": "@openzeppelin/contracts/utils/Strings.sol",
       "solcConfig": {
@@ -542,6 +584,9 @@
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -553,8 +598,8 @@
         "Strings"
       ]
     },
-    "/Users/jasonschwarz/encode_mev_hack/node_modules/@openzeppelin/contracts/utils/introspection/ERC165.sol": {
-      "lastModificationDate": 1661702056780,
+    "/Users/ae0h/ae0hPro/encode_mev_hack/node_modules/@openzeppelin/contracts/utils/introspection/ERC165.sol": {
+      "lastModificationDate": 1661984831953,
       "contentHash": "0e7db055ce108f9da7bb6686a00287c0",
       "sourceName": "@openzeppelin/contracts/utils/introspection/ERC165.sol",
       "solcConfig": {
@@ -577,6 +622,9 @@
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -590,8 +638,8 @@
         "ERC165"
       ]
     },
-    "/Users/jasonschwarz/encode_mev_hack/node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol": {
-      "lastModificationDate": 1661702056780,
+    "/Users/ae0h/ae0hPro/encode_mev_hack/node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol": {
+      "lastModificationDate": 1661984832255,
       "contentHash": "03e6768535ac4da0e9756f1d8a4a018a",
       "sourceName": "@openzeppelin/contracts/utils/introspection/IERC165.sol",
       "solcConfig": {
@@ -614,6 +662,9 @@
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -625,8 +676,8 @@
         "IERC165"
       ]
     },
-    "/Users/jasonschwarz/encode_mev_hack/contracts/VaultFactory.sol": {
-      "lastModificationDate": 1662835637313,
+    "/Users/ae0h/ae0hPro/encode_mev_hack/contracts/VaultFactory.sol": {
+      "lastModificationDate": 1663179950233,
       "contentHash": "8af310c5e2c946e4d1f5952b36596949",
       "sourceName": "contracts/VaultFactory.sol",
       "solcConfig": {
@@ -649,6 +700,9 @@
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -666,8 +720,8 @@
         "VaultFactory"
       ]
     },
-    "/Users/jasonschwarz/encode_mev_hack/node_modules/@openzeppelin/contracts/utils/Counters.sol": {
-      "lastModificationDate": 1661702056777,
+    "/Users/ae0h/ae0hPro/encode_mev_hack/node_modules/@openzeppelin/contracts/utils/Counters.sol": {
+      "lastModificationDate": 1661984831820,
       "contentHash": "74654e3ae5d7f39555055dfe244dab7a",
       "sourceName": "@openzeppelin/contracts/utils/Counters.sol",
       "solcConfig": {
@@ -690,6 +744,9 @@
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -701,8 +758,8 @@
         "Counters"
       ]
     },
-    "/Users/jasonschwarz/encode_mev_hack/contracts/BeaconProxy.sol": {
-      "lastModificationDate": 1662464739965,
+    "/Users/ae0h/ae0hPro/encode_mev_hack/contracts/BeaconProxy.sol": {
+      "lastModificationDate": 1662562168482,
       "contentHash": "857d7348a1536fd034718b2b14a1987d",
       "sourceName": "contracts/BeaconProxy.sol",
       "solcConfig": {
@@ -725,6 +782,9 @@
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -741,8 +801,8 @@
         "BeaconProxy"
       ]
     },
-    "/Users/jasonschwarz/encode_mev_hack/contracts/Beacon.sol": {
-      "lastModificationDate": 1662313929209,
+    "/Users/ae0h/ae0hPro/encode_mev_hack/contracts/Beacon.sol": {
+      "lastModificationDate": 1662562168482,
       "contentHash": "ec8dc5a80bae5aa36584dba0b248ed3d",
       "sourceName": "contracts/Beacon.sol",
       "solcConfig": {
@@ -765,6 +825,9 @@
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -779,8 +842,8 @@
         "Beacon"
       ]
     },
-    "/Users/jasonschwarz/encode_mev_hack/contracts/Proxy.sol": {
-      "lastModificationDate": 1662406740457,
+    "/Users/ae0h/ae0hPro/encode_mev_hack/contracts/Proxy.sol": {
+      "lastModificationDate": 1662562168484,
       "contentHash": "1458861af3a02d7033b6565024fd30cd",
       "sourceName": "contracts/Proxy.sol",
       "solcConfig": {
@@ -803,6 +866,9 @@
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -814,8 +880,8 @@
         "Proxy"
       ]
     },
-    "/Users/jasonschwarz/encode_mev_hack/contracts/UpgradeableBeacon.sol": {
-      "lastModificationDate": 1662313062721,
+    "/Users/ae0h/ae0hPro/encode_mev_hack/contracts/UpgradeableBeacon.sol": {
+      "lastModificationDate": 1662562168484,
       "contentHash": "28408c11a67b7164c9e8960a88b08c10",
       "sourceName": "contracts/UpgradeableBeacon.sol",
       "solcConfig": {
@@ -838,6 +904,9 @@
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -853,8 +922,8 @@
         "UpgradeableBeacon"
       ]
     },
-    "/Users/jasonschwarz/encode_mev_hack/contracts/Ownable.sol": {
-      "lastModificationDate": 1662317123569,
+    "/Users/ae0h/ae0hPro/encode_mev_hack/contracts/Ownable.sol": {
+      "lastModificationDate": 1662562168483,
       "contentHash": "5d0ba17932389d154a4a55f1329a4b2a",
       "sourceName": "contracts/Ownable.sol",
       "solcConfig": {
@@ -877,6 +946,9 @@
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -888,8 +960,8 @@
         "Ownable"
       ]
     },
-    "/Users/jasonschwarz/encode_mev_hack/contracts/Context.sol": {
-      "lastModificationDate": 1662418809114,
+    "/Users/ae0h/ae0hPro/encode_mev_hack/contracts/Context.sol": {
+      "lastModificationDate": 1662562168482,
       "contentHash": "e1db2844af7c7ed03c050a9cea079c96",
       "sourceName": "contracts/Context.sol",
       "solcConfig": {
@@ -912,6 +984,9 @@
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -921,6 +996,283 @@
       ],
       "artifacts": [
         "Context"
+      ]
+    },
+    "/Users/ae0h/ae0hPro/encode_mev_hack/contracts/gelatofied.sol": {
+      "lastModificationDate": 1662853394824,
+      "contentHash": "cb60529c46193800cec7bd9325a547e5",
+      "sourceName": "contracts/gelatofied.sol",
+      "solcConfig": {
+        "version": "0.8.8",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": false
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/utils/Address.sol",
+        "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol"
+      ],
+      "versionPragmas": [
+        "0.8.8"
+      ],
+      "artifacts": [
+        "Gelatofied"
+      ]
+    },
+    "/Users/ae0h/ae0hPro/encode_mev_hack/node_modules/@openzeppelin/contracts/utils/Address.sol": {
+      "lastModificationDate": 1661984831763,
+      "contentHash": "c476b3895a94798b88a4bb97399e6dfe",
+      "sourceName": "@openzeppelin/contracts/utils/Address.sol",
+      "solcConfig": {
+        "version": "0.8.8",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": false
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.1"
+      ],
+      "artifacts": [
+        "Address"
+      ]
+    },
+    "/Users/ae0h/ae0hPro/encode_mev_hack/node_modules/@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol": {
+      "lastModificationDate": 1661984832359,
+      "contentHash": "3a843b05b85a270e9455e3d2e804e633",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol",
+      "solcConfig": {
+        "version": "0.8.8",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": false
+          }
+        }
+      },
+      "imports": [
+        "../IERC20.sol",
+        "../extensions/draft-IERC20Permit.sol",
+        "../../../utils/Address.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "SafeERC20"
+      ]
+    },
+    "/Users/ae0h/ae0hPro/encode_mev_hack/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+      "lastModificationDate": 1661984832263,
+      "contentHash": "ad7c2d0af148c8f9f097d65deeb4da6b",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+      "solcConfig": {
+        "version": "0.8.8",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": false
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC20"
+      ]
+    },
+    "/Users/ae0h/ae0hPro/encode_mev_hack/node_modules/@openzeppelin/contracts/token/ERC20/extensions/draft-IERC20Permit.sol": {
+      "lastModificationDate": 1661984831887,
+      "contentHash": "fb77f144244b9ab12533aa6ce85ef8c5",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/draft-IERC20Permit.sol",
+      "solcConfig": {
+        "version": "0.8.8",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": false
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC20Permit"
+      ]
+    },
+    "/Users/ae0h/ae0hPro/encode_mev_hack/contracts/SquiddyOps.sol": {
+      "lastModificationDate": 1663172241938,
+      "contentHash": "65c6a3cac4e991b55c078e81d2ca4bd1",
+      "sourceName": "contracts/SquiddyOps.sol",
+      "solcConfig": {
+        "version": "0.8.8",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": false
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol"
+      ],
+      "versionPragmas": [
+        ">=0.8.8"
+      ],
+      "artifacts": [
+        "SquiddyOps"
+      ]
+    },
+    "/Users/ae0h/ae0hPro/encode_mev_hack/contracts/HarvestTask.sol": {
+      "lastModificationDate": 1663172240526,
+      "contentHash": "cccb038e3e6b826a661706eb6e75ac4e",
+      "sourceName": "contracts/HarvestTask.sol",
+      "solcConfig": {
+        "version": "0.8.8",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": false
+          }
+        }
+      },
+      "imports": [
+        "./SquiddyOps.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "HarvestTask"
       ]
     }
   }

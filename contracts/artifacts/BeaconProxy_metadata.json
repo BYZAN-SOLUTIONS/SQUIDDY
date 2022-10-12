@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.8+commit.dddeac2f"
+		"version": "0.8.17+commit.8df45f5f"
 	},
 	"language": "Solidity",
 	"output": {
@@ -93,7 +93,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/BeaconProxy.sol": "BeaconProxy"
+			"BeaconProxy.sol": "BeaconProxy"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -107,31 +107,31 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/Address.sol": {
-			"keccak256": "0x1b65ed9f69f81012c4a65bd2399521f674a8091ee116a20e7ca91da279d29550",
+		"Address.sol": {
+			"keccak256": "0x8692a39368669041b3d4bdbe1ffd69d7c5102fb7d65369df1800b32b61a99f2e",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://c09507fdd578d2c6961cc0764783cefff54af06212743e4a1fcafcdee54d2f19",
-				"dweb:/ipfs/QmTHWcTE5chBYV62NAtnni4gZLFS8SfxV2YaY5bWCzMJTC"
+				"bzz-raw://7b457791a5bd34f032bc1c78b7524cfdc19d54767fb2c1cc08ad4e7d659d7237",
+				"dweb:/ipfs/QmcsXxg691TmXDCx8ksBPvRFQA6SG3ZTrXdg9YiFjv8pXK"
 			]
 		},
-		"contracts/BeaconProxy.sol": {
-			"keccak256": "0x0a11ec4dd780729bd8efe295f651d9422002cc3ad9a68c7b008738a90bda2ec7",
+		"BeaconProxy.sol": {
+			"keccak256": "0x5b028428f4afc0762783bfe5ab205707a3ec02a1fff38d3f948df05102d5083e",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://8639d2cc3aa824c45d9ea55d7321686d80d90ab54370563aa07d8c6c7aa70aac",
-				"dweb:/ipfs/QmNQE5Bmezbw8rovRUEFnSENbaVn1dRGsWv2aXGVmoZ8at"
+				"bzz-raw://154890b37f935ce181ff1ff4b439cf2224cd8b98a502a3753a97810e5be4fc33",
+				"dweb:/ipfs/QmZFQ7jdMqbEV31dbTy5jmC4akZBu2cfqU1k6uNBefezpw"
 			]
 		},
-		"contracts/ERC1967Upgrade.sol": {
-			"keccak256": "0xc8d768b7f92b7391de772001ea9586edac5b78111e0a6240746e133c49221cbb",
+		"ERC1967Upgrade.sol": {
+			"keccak256": "0xf106cfa151b78e22ae293a5aad9067009484840a585578859d576a86f6596ff7",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://05409eca7dc14b88b450f469e1a46f4b1f51f7e37722a42bba096546bfa27bfa",
-				"dweb:/ipfs/QmYgcWFSz4U8Y1fcv4aimeBgPM3egcxF9jCYr4L91NFVEr"
+				"bzz-raw://6c3355e1d9d10098872d4c9f68b2b3ae27a3ed01fc93dacbfb441c4164c6a873",
+				"dweb:/ipfs/QmW98PVvcNaxxA7XGb9TK5C4dHJ7fE9MGCkx3oFbjv8sR1"
 			]
 		},
-		"contracts/IBeacon.sol": {
+		"IBeacon.sol": {
 			"keccak256": "0x8cb861c2f4dbac08ba24014ce13b6fa70fbd891530633999c8ce02af39a13158",
 			"license": "MIT",
 			"urls": [
@@ -139,7 +139,7 @@
 				"dweb:/ipfs/QmZSeWBBXWXwcVrPrdETPSUisWLNJxFjX1yWK9yZ5P6DT1"
 			]
 		},
-		"contracts/Proxy.sol": {
+		"Proxy.sol": {
 			"keccak256": "0x039a7f543ad75ac3abc1e13668eda1ce712b36a41c1fb58f32defb8fda3e13be",
 			"license": "MIT",
 			"urls": [
@@ -147,7 +147,7 @@
 				"dweb:/ipfs/QmSmSZUG1RKgx7VuCcv8T6fvmYSxZfa6ygY5TLBnYGQg1G"
 			]
 		},
-		"contracts/StorageSlot.sol": {
+		"StorageSlot.sol": {
 			"keccak256": "0x89a353a9d99919bac8af80b203462d2e564e2a85f75cde6ff7280f5fc1ef7bf0",
 			"license": "MIT",
 			"urls": [
@@ -155,7 +155,7 @@
 				"dweb:/ipfs/QmbuKy66pdAzabXHf163L87r41fb95oPF6tWsa4UAAq5UT"
 			]
 		},
-		"contracts/draft-IERC1822.sol": {
+		"draft-IERC1822.sol": {
 			"keccak256": "0xa911e54126fe060ce3ff3098fc2d996d23331a85d18d519e5f586dcd6fc1d728",
 			"license": "MIT",
 			"urls": [
@@ -164,11 +164,11 @@
 			]
 		},
 		"hardhat/console.sol": {
-			"keccak256": "0x72b6a1d297cd3b033d7c2e4a7e7864934bb767db6453623f1c3082c6534547f4",
+			"keccak256": "0x60b0215121bf25612a6739fb2f1ec35f31ee82e4a8216c032c8243d904ab3aa9",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://a8cb8681076e765c214e0d51cac989325f6b98e315eaae06ee0cbd5a9f084763",
-				"dweb:/ipfs/QmNWGHi4zmjxQTYN3NMGnJd49jBT5dE4bxTdWEaDuJrC6N"
+				"bzz-raw://6e29880d33dd479bb046ba306993d26ccb779a4b1d94a046cb3567f22948bb4d",
+				"dweb:/ipfs/QmfTY1qzPt5C63Wc7y6JqfZr5899NRvXYdCpyLzR5FXQic"
 			]
 		}
 	},

@@ -1,5 +1,4 @@
 require("@nomicfoundation/hardhat-toolbox");
-require("dotenv").config();
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -7,17 +6,13 @@ module.exports = {
     hardhat: {
       chainId: 1337,
     },
-    localhost: {
-      url: "http://localhost:8545",
-      chainId: 1337,
-    },
     goerli: {
-      url: process.env.GOERLI_URL,
-      accounts: [process.env.GOERLI_PRIVATE_KEY],
+      url: "https://eth-goerli.g.alchemy.com/v2/btBsEUKXY_bxQ4MM8fP20Nu0_rUkuoHz",
+      accounts: ["68d36272159f0488beb8c7ed57b57cd3f9761f4d4edd5cc89930b7ea313d510d"],
     },
   },
   etherscan: {
-    apiKey: process.env.ETHERSCAN_API_KEY,
+    apiKey: "MZTCGPGTRA44U7S1Y231HWKHZBBSGU3C93",
   },
   solidity: "0.8.8",
 };

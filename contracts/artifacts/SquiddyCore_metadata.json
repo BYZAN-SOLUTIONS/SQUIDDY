@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.8+commit.dddeac2f"
+		"version": "0.8.17+commit.8df45f5f"
 	},
 	"language": "Solidity",
 	"output": {
@@ -705,24 +705,6 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_searcher",
-						"type": "address"
-					},
-					{
-						"internalType": "uint160",
-						"name": "_duration",
-						"type": "uint160"
-					}
-				],
-				"name": "initialize",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
 						"name": "_underlying",
 						"type": "address"
 					},
@@ -1406,9 +1388,6 @@
 				"hasRole(bytes32,address)": {
 					"details": "Returns `true` if `account` has been granted `role`."
 				},
-				"initialize(address,uint160)": {
-					"details": "All critical parameters must already be set before calling."
-				},
 				"renounceRole(bytes32,address)": {
 					"details": "Revokes `role` from the calling account. Roles are often managed via {grantRole} and {revokeRole}: this function's purpose is to provide a mechanism for accounts to lose their privileges if they are compromised (such as when a trusted device is misplaced). If the calling account had been revoked `role`, emits a {RoleRevoked} event. Requirements: - the caller must be `account`. May emit a {RoleRevoked} event."
 				},
@@ -1470,9 +1449,6 @@
 				},
 				"feePercent()": {
 					"notice": "The percentage of profit recognized each harvest to reserve as fees."
-				},
-				"initialize(address,uint160)": {
-					"notice": "Initializes the Vault, enabling it to receive deposits."
 				},
 				"isInitialized()": {
 					"notice": "Whether the Vault has been initialized yet."
@@ -1596,11 +1572,11 @@
 			]
 		},
 		"contracts/SquiddyCore.sol": {
-			"keccak256": "0x88593260c957adc5fc4e0080dbaec6dfb55103aa7211e0ba95312e9471625839",
+			"keccak256": "0x0c8372ab2f523e11d1ab848faacf43d9da2724eb04d5f5ebb6b6fe0197202baf",
 			"license": "AGPL-3.0-only",
 			"urls": [
-				"bzz-raw://506532403487a113c3daac2d9157c283ed38eeb5f319c0d8a3037aac463e744e",
-				"dweb:/ipfs/QmVyuM8mTVGUgQ89C6esYNs8YscwtpdHqNj3Uorx3YAeij"
+				"bzz-raw://5f0f611f6cbaecb302261bb345ca1737c60ceba08a70beea8a5b652e046e9369",
+				"dweb:/ipfs/Qmcr4kpRZgU4Hh2KTp5n1tdh7xTRxNhuLhZMQibBTGKj64"
 			]
 		},
 		"hardhat/console.sol": {
