@@ -202,7 +202,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"impl.sol": "IERC20"
+			"contracts/impl.sol": "IERC20"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -216,7 +216,7 @@
 		"remappings": []
 	},
 	"sources": {
-		"impl.sol": {
+		"contracts/impl.sol": {
 			"keccak256": "0xb93f8da303a9750e3c868f8dcf412c7d861e691120c28bad8e679b64afdfe532",
 			"license": "MIT",
 			"urls": [

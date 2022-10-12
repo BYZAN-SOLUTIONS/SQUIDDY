@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.8+commit.dddeac2f"
+		"version": "0.8.17+commit.8df45f5f"
 	},
 	"language": "Solidity",
 	"output": {
@@ -334,11 +334,11 @@
 	},
 	"sources": {
 		"contracts/ERC20.sol": {
-			"keccak256": "0x95ede73c02c84c29435c361cd1a3ddb8aee89ba502b1cb073aadc9377791c6ff",
+			"keccak256": "0x3a47ccc5492cca068e1c22b11a474eb5c683eb30c5dec6cc9ef68cce139a8375",
 			"license": "AGPL-3.0-only",
 			"urls": [
-				"bzz-raw://496d71d6651d03343fc77efbc02b1c4cf64d2b83036b7489759dc19dfa7c5792",
-				"dweb:/ipfs/QmQAeHkxT4CM3GyYn5JVYQB3ZuSV7NDAZzUbBuQ98Uwx5B"
+				"bzz-raw://2f144f006320aded5e950652589b890d792d461eefbe199e5ca56521703ea8bb",
+				"dweb:/ipfs/QmXXTxsZp8gDRsXyMYiLB1x1eomZeydU2ofEdWsUQjgGkA"
 			]
 		},
 		"hardhat/console.sol": {

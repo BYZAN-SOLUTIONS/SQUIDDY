@@ -9,9 +9,7 @@ contract SquiddyVault is ERC4626 {
                 string memory vName,
                 string memory vSymbol
                 )
-    ERC4626(IERC20Metadata(_token)) ERC20(vName, vSymbol) {
-        
-        
+    ERC4626(IERC20Metadata(_token)) ERC20(vName, vSymbol) {        
     }
 
 }

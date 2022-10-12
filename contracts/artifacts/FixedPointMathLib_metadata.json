@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.16+commit.07a7930e"
+		"version": "0.8.17+commit.8df45f5f"
 	},
 	"language": "Solidity",
 	"output": {
@@ -20,7 +20,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"FixedPointMathLib.sol": "FixedPointMathLib"
+			"contracts/FixedPointMathLib.sol": "FixedPointMathLib"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -34,7 +34,7 @@
 		"remappings": []
 	},
 	"sources": {
-		"FixedPointMathLib.sol": {
+		"contracts/FixedPointMathLib.sol": {
 			"keccak256": "0x4613ceaa017d64f94096c03a8c87f184e634829e3631e8be4be41fc8cdbd643d",
 			"license": "AGPL-3.0-only",
 			"urls": [

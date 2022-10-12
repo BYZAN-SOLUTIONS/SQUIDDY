@@ -227,6 +227,24 @@
 			{
 				"inputs": [
 					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "burn",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "uint256",
 						"name": "shares",
 						"type": "uint256"
@@ -426,6 +444,24 @@
 			{
 				"inputs": [
 					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "mint",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "uint256",
 						"name": "shares",
 						"type": "uint256"
@@ -608,7 +644,7 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "to",
+						"name": "recipient",
 						"type": "address"
 					},
 					{
@@ -632,12 +668,12 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "from",
+						"name": "sender",
 						"type": "address"
 					},
 					{
 						"internalType": "address",
-						"name": "to",
+						"name": "recipient",
 						"type": "address"
 					},
 					{
@@ -762,12 +798,6 @@
 				"totalSupply()": {
 					"details": "See {IERC20-totalSupply}."
 				},
-				"transfer(address,uint256)": {
-					"details": "See {IERC20-transfer}. Requirements: - `to` cannot be the zero address. - the caller must have a balance of at least `amount`."
-				},
-				"transferFrom(address,address,uint256)": {
-					"details": "See {IERC20-transferFrom}. Emits an {Approval} event indicating the updated allowance. This is not required by the EIP. See the note at the beginning of {ERC20}. NOTE: Does not update the allowance if the current allowance is the maximum `uint256`. Requirements: - `from` and `to` cannot be the zero address. - `from` must have a balance of at least `amount`. - the caller must have allowance for ``from``'s tokens of at least `amount`."
-				},
 				"withdraw(uint256,address,address)": {
 					"details": "See {IERC4262-withdraw}. "
 				}
@@ -877,11 +907,11 @@
 			]
 		},
 		"contracts/SquiddyCore.sol": {
-			"keccak256": "0x6be15c637115f5276108c18c5719d0399749c3c716cb578d7de3f29425272c4b",
+			"keccak256": "0x725206399a13fbfdd6c53b699c44df8cee68ed22b6cece72b25aab946baedbcd",
 			"license": "Unlicense",
 			"urls": [
-				"bzz-raw://21bff5297d4c1e12825fe47f98d5ccb0b96a39988d3c4f53a00d5c334dcb1f94",
-				"dweb:/ipfs/QmecgefgPur5XXLEBHFBY1nUV5yDYyxWBfJqm3SAz6JiPe"
+				"bzz-raw://b6800973411d67a61de4297531820a02d2db50a36fc54ada1505c46d5b915bc8",
+				"dweb:/ipfs/QmXjXNZhSbtAkBtHz9X6jS6MwpvMZ8DvMjeK2BF7qJ8dsE"
 			]
 		}
 	},

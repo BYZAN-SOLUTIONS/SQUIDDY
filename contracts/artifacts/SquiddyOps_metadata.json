@@ -58,7 +58,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"SquiddyOps.sol": "SquiddyOps"
+			"contracts/SquiddyOps.sol": "SquiddyOps"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -104,7 +104,7 @@
 				"dweb:/ipfs/QmPGWT2x3QHcKxqe6gRmAkdakhbaRgx3DLzcakHz5M4eXG"
 			]
 		},
-		"SquiddyOps.sol": {
+		"contracts/SquiddyOps.sol": {
 			"keccak256": "0x761054eace1385276fd99347817d0f71b409934ba298686c09cd6b7e6e9f82bc",
 			"license": "AGPL-3.0-only",
 			"urls": [

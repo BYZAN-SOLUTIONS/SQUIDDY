@@ -37,7 +37,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"draft-IERC1822.sol": "IERC1822Proxiable"
+			"contracts/draft-IERC1822.sol": "IERC1822Proxiable"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -51,7 +51,7 @@
 		"remappings": []
 	},
 	"sources": {
-		"draft-IERC1822.sol": {
+		"contracts/draft-IERC1822.sol": {
 			"keccak256": "0xa911e54126fe060ce3ff3098fc2d996d23331a85d18d519e5f586dcd6fc1d728",
 			"license": "MIT",
 			"urls": [
