@@ -1518,9 +1518,9 @@
   dependencies:
     "glob" "7.1.7"
 
-"@next/swc-darwin-arm64@12.2.2":
-  "integrity" "sha512-JCoGySHKGt+YBk7xRTFGx1QjrnCcwYxIo3yGepcOq64MoiocTM3yllQWeOAJU2/k9MH0+B5E9WUSme4rOCBbpA=="
-  "resolved" "https://registry.npmjs.org/@next/swc-darwin-arm64/-/swc-darwin-arm64-12.2.2.tgz"
+"@next/swc-darwin-x64@12.2.2":
+  "integrity" "sha512-dztDtvfkhUqiqpXvrWVccfGhLe44yQ5tQ7B4tBfnsOR6vxzI9DNPHTlEOgRN9qDqTAcFyPxvg86mn4l8bB9Jcw=="
+  "resolved" "https://registry.npmjs.org/@next/swc-darwin-x64/-/swc-darwin-x64-12.2.2.tgz"
   "version" "12.2.2"
 
 "@noble/hashes@~1.1.1", "@noble/hashes@1.1.2":
@@ -1608,6 +1608,11 @@
   "integrity" "sha512-9X2obfABZuDVLCgPK9aX0a/x4jaOEweTTWE2+9sr0Qqqevj2Uv5XorvusThmc9XGYpS9yI+fhh8RTafBtGposw=="
   "resolved" "https://registry.npmjs.org/@popperjs/core/-/core-2.11.5.tgz"
   "version" "2.11.5"
+
+"@rari-capital/solmate@^6.4.0":
+  "integrity" "sha512-BXWIHHbG5Zbgrxi0qVYe0Zs+bfx+XgOciVUACjuIApV0KzC0kY8XdO1higusIei/ZKCC+GUKdcdQZflxYPUTKQ=="
+  "resolved" "https://registry.npmjs.org/@rari-capital/solmate/-/solmate-6.4.0.tgz"
+  "version" "6.4.0"
 
 "@rushstack/eslint-patch@^1.1.3":
   "integrity" "sha512-LwzQKA4vzIct1zNZzBmRKI9QuNpLgTQMEjsQLf3BXuGYb3QPTP4Yjf6mkdX+X1mYttZ808QpOwAzZjv28kq7DA=="
