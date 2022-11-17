@@ -110,7 +110,7 @@ contract Vault is ERC20, IERC4626 {
                          INTERNAL HOOKS LOGIC
     くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡*/
 
-    /// @notice Example usage of hook. Pull funds from strategy to Vault if needed.
+    /// @notice Pull funds from strategy to Vault if needed.
     /// Withdraw at least requested amount to the Vault. Covers withdraw/performance fees of strat. Leaves dust tokens.
     function beforeWithdraw(uint256 amount) internal {
         uint256 _withdraw = (amount + ((amount * 50) / 10000)) - idleFloat();
@@ -147,12 +147,12 @@ contract Vault is ERC20, IERC4626 {
         return (totalFloat * minFloat) / maxFloat;
     }
 
-    /// @notice Optional. Left empty here. (No limit) 
+    /// todo: add subscription logic WIP
     function maxDeposit(address) public pure override returns (uint256) {
         return type(uint256).max;
     }
 
-    /// @notice Optional. Left empty here. (No limit) 
+    /// todo: add subscription logic WIP
     function maxMint(address) public pure override returns (uint256) {
         return type(uint256).max;
     }
