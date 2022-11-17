@@ -143,7 +143,6 @@ contract Squiddy {
                 earn(_want, _amount - _reward);
                 IERC20(_want).transfer(rewards, _reward);
             }
-        
     }
     function withdraw(address _token, uint256 _amount) public {
         require(msg.sender == vaults[_token], "!vault");
