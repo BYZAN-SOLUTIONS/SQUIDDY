@@ -123,26 +123,28 @@ contract Squiddy {
         (expected, ) = OneSplitAudit(onesplit).getExpectedReturn(_token, _want, _balance, parts, 0);
     }
 
-    // Only allows to withdraw non-core strategy tokens 
+    // todo: implement strategy logic using the following functions and onesplitaudit/onesplit
+    // todo: first interface used fore testing will be a balancer flashswap strategy
     function searcher(
         address _strategy,
-        address _token,
-        uint256 parts
+        address _token
     ) public {
-        require(msg.sender == vaultManager, "!vaultManager");
+        require( msg.sender == vaultManager, "!vaultManager");
         // This contract should never have value in it, but just incase since this is a public call
         uint256 _before = IERC20(_token).balanceOf(address(this));
         Strategy(_strategy).withdraw(_token);
         uint256 _after = IERC20(_token).balanceOf(address(this));
+
             if (_after > _before) {
+                uint256 _amount = _after - _before;
+                address _want = Strategy(_strategy).want();
                 _amount = _after - _before;
                 uint256 _reward = (_amount * split) / max;
                 earn(_want, _amount - _reward);
                 IERC20(_want).transfer(rewards, _reward);
             }
-        }
+        
     }
-
     function withdraw(address _token, uint256 _amount) public {
         require(msg.sender == vaults[_token], "!vault");
         Strategy(strategies[_token]).withdraw(_amount);
