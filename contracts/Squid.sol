@@ -134,17 +134,6 @@ contract Squiddy {
         uint256 _before = IERC20(_token).balanceOf(address(this));
         Strategy(_strategy).withdraw(_token);
         uint256 _after = IERC20(_token).balanceOf(address(this));
-        if (_after > _before) {
-            uint256 _amount = _after - _before;
-            address _want = Strategy(_strategy).want();
-            uint256[] memory _distribution;
-            uint256 _expected;
-            _before = IERC20(_want).balanceOf(address(this));
-            IERC20(_token).approve(onesplit, 0);
-            IERC20(_token).approve(onesplit, _amount);
-            (_expected, _distribution) = OneSplitAudit(onesplit).getExpectedReturn(_token, _want, _amount, parts, 0);
-            OneSplitAudit(onesplit).swap(_token, _want, _amount, _expected, _distribution, 0);
-            _after = IERC20(_want).balanceOf(address(this));
             if (_after > _before) {
                 _amount = _after - _before;
                 uint256 _reward = (_amount * split) / max;
