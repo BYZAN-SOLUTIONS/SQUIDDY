@@ -3,7 +3,7 @@
 
 pragma solidity ^0.8.8;
 
-import "./IBeacon.sol";
+import "../interfaces/IBeacon.sol";
 import "./Proxy.sol";
 import "./ERC1967Upgrade.sol";
 import "hardhat/console.sol";

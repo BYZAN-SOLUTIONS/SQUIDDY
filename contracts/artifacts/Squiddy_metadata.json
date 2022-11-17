@@ -1,0 +1,546 @@
+{
+	"compiler": {
+		"version": "0.8.17+commit.8df45f5f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_rewards",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_strategy",
+						"type": "address"
+					}
+				],
+				"name": "approveStrategy",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "approvedStrategies",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					}
+				],
+				"name": "balanceOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "converters",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "earn",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_strategy",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "parts",
+						"type": "uint256"
+					}
+				],
+				"name": "getExpectedReturn",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "expected",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_strategy",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					}
+				],
+				"name": "inCaseStrategyTokenGetStuck",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "inCaseTokensGetStuck",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "max",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "onesplit",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_strategy",
+						"type": "address"
+					}
+				],
+				"name": "revokeStrategy",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "rewards",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_strategy",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "parts",
+						"type": "uint256"
+					}
+				],
+				"name": "searcher",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_input",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_output",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_converter",
+						"type": "address"
+					}
+				],
+				"name": "setConverter",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_onesplit",
+						"type": "address"
+					}
+				],
+				"name": "setOneSplit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_rewards",
+						"type": "address"
+					}
+				],
+				"name": "setRewards",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_split",
+						"type": "uint256"
+					}
+				],
+				"name": "setSplit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_strategy",
+						"type": "address"
+					}
+				],
+				"name": "setStrategy",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_vault",
+						"type": "address"
+					}
+				],
+				"name": "setVault",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "split",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "strategies",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "vaultManager",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "vaults",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					}
+				],
+				"name": "withdrawAll",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Squid.sol": "Squiddy"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@rari-capital/solmate/src/tokens/ERC20.sol": {
+			"keccak256": "0x0240f7703cff32a61ee3e9fbb339e09a944260432a9ef37debf3692b1a6c8049",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://2d8b0c0158b1952a87c327d506a645040924a94c8f9f937184659f8a8e3b0759",
+				"dweb:/ipfs/QmZ9rGdkjRCk8zfr4xeH7Jh88tkWJNt9LvG1o2GcCm7Uqa"
+			]
+		},
+		"@rari-capital/solmate/src/utils/SafeTransferLib.sol": {
+			"keccak256": "0xa28a1515702793c6b56b97272f75e05890fd82aa2e7ec47b41d4d56a81023f69",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://7bb0229ba04ab021f31ecb002c162fe1db2e2cf36c76c403801013dda8bd1124",
+				"dweb:/ipfs/QmPRLj9LkGGxNuXf66srwNSrYpcbnzH1JtrpMFukTEnoEx"
+			]
+		},
+		"Squid.sol": {
+			"keccak256": "0xdb80397ebdb9e87ecd0ed2cb1d0111ff54a3e1bd412092f2d8ab0bb16e621ce2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8f1ff5f77b559fa5bdf22a9d102842eee7e248e2a1b4e036280a307129c1fa0e",
+				"dweb:/ipfs/QmbFnJZeY5dhjkqSqqJXceKdd2ofCXCXqX6nomaFgaLWkG"
+			]
+		},
+		"interfaces/Converter.sol": {
+			"keccak256": "0x4d311dc70fa302c3f39d2f341e24ed325a208c6b8a906f707b09040a2c9f61f7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a847a439cf696004568e21d749e5102bf8f0ec95564d2e0947b08bc42d6f6119",
+				"dweb:/ipfs/QmRhk7JrdkeDTJD7zfz6EP4MoGc5N5tNyvQpTMQ4SHGRtn"
+			]
+		},
+		"interfaces/IERC20.sol": {
+			"keccak256": "0x9f2387cef46838d057d9a05a4d74d11ca0c40c6a89a6064bc31d08a880389b22",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://50d27027b6f9f7246afeb16102213ac14ba2b80fc568f13076f241a99e333316",
+				"dweb:/ipfs/QmWDuUcgYXmsWHVEjHhBNMATXAnLZHk7MsJjMkjpGTwYcM"
+			]
+		},
+		"interfaces/IStrategy.sol": {
+			"keccak256": "0x11fb2a73ea439c3c026b55df11b9e69e1d5b448b6095e8ade13107b1ef182848",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f598c797c925049ce32ebb565cf45734a7d1746d6ea3b83bc72e81e545be70dc",
+				"dweb:/ipfs/QmQ6Ng9fz4yaVupcPbyTk83pcL9p6h6iptsSrSssxQYWSo"
+			]
+		},
+		"interfaces/OneSplitAudit.sol": {
+			"keccak256": "0x52c59cbefb175095abab821b7063b446ad943b789d19618b97764a1fe5667e66",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d5d1f2cdd42bbd39889701577088f31f78e12d923e62297112bb4c41c18f8f9f",
+				"dweb:/ipfs/QmbestpogTzHVNxyghD1J3se5JFX6wfENGGeYNJKthsEQJ"
+			]
+		}
+	},
+	"version": 1
+}

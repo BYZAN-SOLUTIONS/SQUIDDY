@@ -5,8 +5,8 @@ import { ERC20 } from "@rari-capital/solmate/src/tokens/ERC20.sol";
 import { SafeTransferLib } from "@rari-capital/solmate/src/utils/SafeTransferLib.sol";
 import { IERC20 } from "./interfaces/IERC20.sol";
 import { IERC4626 } from "./interfaces/IERC4626.sol";
-import { FixedPointMathLib } from "https://github.com/transmissions11/solmate/blob/main/src/utils/FixedPointMathLib.sol";
-import "./interfaces/IManager.sol";
+import { FixedPointMathLib } from "./libs/FixedPointMath.sol";
+import "./interfaces/ISquid.sol";
 
 import "hardhat/console.sol";
 
@@ -17,18 +17,20 @@ contract Vault is ERC20, IERC4626 {
     uint256 public totalFloat;
     uint256 public minFloat = 9500;
     uint256 public constant maxFloat = 10000;
-    address public manager;
+    address public squid;
+    address public vaultManager;
     ERC20 public immutable asset;
 
     constructor(
         ERC20 _underlying,
         string memory _name,
         string memory _symbol,
-        address _manager
+        address _vaultManager,
+        address _squid
     ) ERC20(_name, _symbol, _underlying.decimals()) {
         asset = _underlying;
-        manager = _manager;
-       
+        squid = _squid;
+        vaultManager = _vaultManager;
     }
 
     /*くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡
@@ -112,7 +114,7 @@ contract Vault is ERC20, IERC4626 {
     /// Withdraw at least requested amount to the Vault. Covers withdraw/performance fees of strat. Leaves dust tokens.
     function beforeWithdraw(uint256 amount) internal {
         uint256 _withdraw = (amount + ((amount * 50) / 10000)) - idleFloat();
-        IManager(manager).withdraw(address(asset), _withdraw);
+        ISquid(squid).withdraw(address(asset), _withdraw);
     }
 
     function afterDeposit(uint256 amount) internal {}
@@ -123,7 +125,7 @@ contract Vault is ERC20, IERC4626 {
 
     /// @notice Sum of idle funds and funds deployed to Strategy.
     function totalAssets() public view override returns (uint256) {
-        return idleFloat() + IManager(manager).balanceOf(address(asset));
+        return idleFloat() + ISquid(squid).balanceOf(address(asset));
     }
 
     function assetsOf(address user) public view override returns (uint256) {
@@ -188,25 +190,35 @@ contract Vault is ERC20, IERC4626 {
     }
 
     /*くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡
-                            SQUID CLUTCH/SEARCHER LOGIC
+                            SQUID LOGIC
     くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡*/
 
     function setMin(uint256 _min) external {
-        require(msg.sender == manager, "no access to non-manager");
+        require(msg.sender == vaultManager, "no access to non-squid");
         minFloat = _min;
+    }
+
+    function setVaultManager(address _vaultManager) public {
+        require(msg.sender == vaultManager, "!governance");
+        vaultManager = _vaultManager;
     }
 
     /// @notice Transfer any available and not limited by cap funds to Controller (=>Strategy).
     function earn() public {
         uint256 _bal = freeFloat();
-        asset.transfer(manager, _bal);
-        IManager(manager).earn(address(asset), _bal);
+        asset.transfer(squid, _bal);
+        ISquid(squid).earn(address(asset), _bal);
+    }
+
+    function setsquid(address _squid) public {
+        require(msg.sender == vaultManager, "!governance");
+        squid = _squid;
     }
 
     function harvest(address reserve, uint256 amount) external {
-        require(msg.sender == manager, "no access to non-manager");
+        require(msg.sender == squid, "no access to non-squid");
         require(reserve != address(asset), "token");
-        IERC20(reserve).transfer(manager, amount);
+        IERC20(reserve).transfer(squid, amount);
     }
 
     function depositAll() external {
@@ -216,3 +228,4 @@ contract Vault is ERC20, IERC4626 {
     function withdrawAll() external {
         withdraw(assetsOf(msg.sender), msg.sender, msg.sender);
     }
+}

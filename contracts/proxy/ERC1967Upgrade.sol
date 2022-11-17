@@ -3,8 +3,8 @@
 
 pragma solidity ^0.8.8;
 
-import "./IBeacon.sol";
-import "./draft-IERC1822.sol";
+import "../interfaces/IBeacon.sol";
+import "../interfaces/draft-IERC1822.sol";
 import "./Address.sol";
 import "./StorageSlot.sol";
 import "hardhat/console.sol";
