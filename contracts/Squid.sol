@@ -124,10 +124,10 @@ contract Squiddy {
     }
 
   /**
-      @notice Withdraws all funds, evenly splits them into all vaults, and calls `harvest()` on all strategies.
-      @param _strategy The strategy to harvest.
-      @param _token The token to harvest.
-      @param parts The parts to split the swap into.
+      @notice SQUID should not have a > 0 balance when called Withdraws all funds from Squid 
+      @param _strategy The strategy to deposit to.
+      @param _token The token to deposit.
+      @param parts The number of parts to split the swap into.
      */
   function conStratHelper(
         address _strategy,
@@ -158,6 +158,12 @@ contract Squiddy {
             }
         }
     }
+
+    /**
+      @notice Withdraws all funds in 
+      @param _token The strategy to withdraw from.
+      @param _amount The amount of token to withdraw.
+     */
 
     function withdraw(address _token, uint256 _amount) public {
         require(msg.sender == vaults[_token], "!vault");
