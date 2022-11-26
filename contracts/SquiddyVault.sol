@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 pragma solidity ^0.8.8;
 
-import { ERC20 } from "@rari-capital/solmate/src/tokens/ERC20.sol";
-import { SafeTransferLib } from "@rari-capital/solmate/src/utils/SafeTransferLib.sol";
-import { IERC20 } from "./interfaces/IERC20.sol";
-import { IERC4626 } from "./interfaces/IERC4626.sol";
-import { FixedPointMathLib } from "./libs/FixedPointMath.sol";
+import {ERC20} from "@rari-capital/solmate/src/tokens/ERC20.sol";
+import {SafeTransferLib} from "@rari-capital/solmate/src/utils/SafeTransferLib.sol";
+import {IERC20} from "./interfaces/IERC20.sol";
+import {IERC4626} from "./interfaces/IERC4626.sol";
+import {FixedPointMathLib} from "./libs/FixedPointMath.sol";
 import "./interfaces/ISquid.sol";
 
 import "hardhat/console.sol";
@@ -23,9 +23,9 @@ contract Vault is ERC20, IERC4626 {
 
     constructor(
         ERC20 _underlying,
+        address _vaultManager,
         string memory _name,
         string memory _symbol,
-        address _vaultManager,
         address _squid
     ) ERC20(_name, _symbol, _underlying.decimals()) {
         asset = _underlying;
@@ -37,7 +37,11 @@ contract Vault is ERC20, IERC4626 {
                                           DEPOSIT/WITHDRAWAL LOGIC
     くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡*/
 
-    function deposit(uint256 amount, address to) public override returns (uint256 shares) {
+    function deposit(uint256 amount, address to)
+        public
+        override
+        returns (uint256 shares)
+    {
         require((shares = previewDeposit(amount)) != 0, "ZERO_SHARES");
 
         _mint(to, shares);
@@ -51,7 +55,11 @@ contract Vault is ERC20, IERC4626 {
         afterDeposit(amount);
     }
 
-    function mint(uint256 shares, address to) public override returns (uint256 amount) {
+    function mint(uint256 shares, address to)
+        public
+        override
+        returns (uint256 amount)
+    {
         _mint(to, amount = previewMint(shares));
 
         totalFloat += amount;
@@ -69,7 +77,8 @@ contract Vault is ERC20, IERC4626 {
         address from
     ) public override returns (uint256 shares) {
         uint256 allowed = allowance[from][msg.sender];
-        if (msg.sender != from && allowed != type(uint256).max) allowance[from][msg.sender] = allowed - shares;
+        if (msg.sender != from && allowed != type(uint256).max)
+            allowance[from][msg.sender] = allowed - shares;
 
         if (amount > idleFloat()) {
             beforeWithdraw(amount);
@@ -90,7 +99,8 @@ contract Vault is ERC20, IERC4626 {
     ) public override returns (uint256 amount) {
         uint256 allowed = allowance[from][msg.sender];
 
-        if (msg.sender != from && allowed != type(uint256).max) allowance[from][msg.sender] = allowed - shares;
+        if (msg.sender != from && allowed != type(uint256).max)
+            allowance[from][msg.sender] = allowed - shares;
         require((amount = previewRedeem(shares)) != 0, "ZERO_ASSETS");
 
         if (shares > idleFloat()) {
@@ -165,28 +175,56 @@ contract Vault is ERC20, IERC4626 {
         return balanceOf[user];
     }
 
-    function previewDeposit(uint256 amount) public view override returns (uint256 shares) {
+    function previewDeposit(uint256 amount)
+        public
+        view
+        override
+        returns (uint256 shares)
+    {
         uint256 supply = totalSupply;
 
-        return supply == 0 ? amount : amount.mulDivDown(totalSupply, totalAssets());
+        return
+            supply == 0
+                ? amount
+                : amount.mulDivDown(totalSupply, totalAssets());
     }
 
-    function previewMint(uint256 shares) public view override returns (uint256 amount) {
+    function previewMint(uint256 shares)
+        public
+        view
+        override
+        returns (uint256 amount)
+    {
         uint256 supply = totalSupply;
 
-        return supply == 0 ? shares : shares.mulDivUp(totalAssets(), totalSupply);
+        return
+            supply == 0 ? shares : shares.mulDivUp(totalAssets(), totalSupply);
     }
 
-    function previewWithdraw(uint256 amount) public view override returns (uint256 shares) {
+    function previewWithdraw(uint256 amount)
+        public
+        view
+        override
+        returns (uint256 shares)
+    {
         uint256 supply = totalSupply;
 
-        return supply == 0 ? amount : amount.mulDivUp(totalSupply, totalAssets());
+        return
+            supply == 0 ? amount : amount.mulDivUp(totalSupply, totalAssets());
     }
 
-    function previewRedeem(uint256 shares) public view override returns (uint256 amount) {
+    function previewRedeem(uint256 shares)
+        public
+        view
+        override
+        returns (uint256 amount)
+    {
         uint256 supply = totalSupply;
 
-        return supply == 0 ? shares : shares.mulDivDown(totalAssets(), totalSupply);
+        return
+            supply == 0
+                ? shares
+                : shares.mulDivDown(totalAssets(), totalSupply);
     }
 
     /*くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡

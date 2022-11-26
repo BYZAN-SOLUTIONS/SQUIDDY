@@ -1,0 +1,10 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "IDefaultStrategies",
+  "sourceName": "contracts/interfaces/IDefaultStrategies.sol",
+  "abi": [],
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea264697066735822122015c7db605836ff89c72663382ce6b417770e2f242f098f62a5bddda1f0bf7df964736f6c63430008080033",
+  "deployedBytecode": "0x6080604052600080fdfea264697066735822122015c7db605836ff89c72663382ce6b417770e2f242f098f62a5bddda1f0bf7df964736f6c63430008080033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}
