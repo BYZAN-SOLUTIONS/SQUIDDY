@@ -126,6 +126,7 @@ contract Vault is ERC20, IERC4626 {
         uint256 _withdraw = (amount + ((amount * 50) / 10000)) - idleFloat();
         ISquid(squid).withdraw(address(asset), _withdraw);
     }
+
     // todo: add afterDeposit hook logic
     function afterDeposit(uint256 amount) internal {}
 

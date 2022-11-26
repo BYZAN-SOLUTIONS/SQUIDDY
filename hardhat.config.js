@@ -1,18 +1,80 @@
 require("@nomicfoundation/hardhat-toolbox");
 
-/** @type import('hardhat/config').HardhatUserConfig */
+require("@nomiclabs/hardhat-etherscan");
+// require("@nomiclabs/hardhat-waffle");
+require("hardhat-gas-reporter");
+require("@nomiclabs/hardhat-ethers");
+require("dotenv").config();
+
+// require path
+// const path = require("path");
+// const resolve = require("path").resolve;
+
+const chainIds = {
+  ganache: 1337,
+  goerli: 5,
+  hardhat: 31337,
+  kovan: 42,
+  mainnet: 1,
+  rinkeby: 4,
+  ropsten: 3,
+};
+
+// https://eth-mainnet.alchemyapi.io/v2/<key>
+
+const MNEMONIC = process.env.MNEMONIC || "";
+const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY || "";
+const INFURA_API_KEY = process.env.INFURA_API_KEY || "";
+const ALCHEMY_KEY = process.env.ALCHEMY_KEY || "";
+
+function createTestnetConfig(network) {
+  const url = "https://" + network + ".infura.io/v3/" + INFURA_API_KEY;
+  return {
+    accounts: {
+      count: 10,
+      initialIndex: 0,
+      mnemonic: MNEMONIC,
+      path: "m/44'/60'/0'/0",
+    },
+    chainId: chainIds[network],
+    url,
+  };
+}
+
+// You need to export an object to set up your config
+// Go to https://hardhat.org/config/ to learn more
+
+const fork_url = "https://eth-mainnet.alchemyapi.io/v2/" + ALCHEMY_KEY;
+
 module.exports = {
+  defaultNetwork: "hardhat",
   networks: {
     hardhat: {
-      chainId: 1337,
+      forking: {
+        url: fork_url,
+        blockNumber: 14003880,
+      },
+      accounts: {
+        count: 5,
+        mnemonic: MNEMONIC,
+      },
+      chainId: chainIds.hardhat,
+      blockGasLimit: 28500000, // this is also eth mainnet current block limit
     },
-    goerli: {
-      url: "https://eth-goerli.g.alchemy.com/v2/btBsEUKXY_bxQ4MM8fP20Nu0_rUkuoHz",
-      accounts: ["68d36272159f0488beb8c7ed57b57cd3f9761f4d4edd5cc89930b7ea313d510d"],
-    },
+    mainnet: createTestnetConfig("mainnet"),
+    goerli: createTestnetConfig("goerli"),
+    kovan: createTestnetConfig("kovan"),
+    rinkeby: createTestnetConfig("rinkeby"),
+    ropsten: createTestnetConfig("ropsten"),
+  },
+  solidity: {
+    compilers: [
+      {
+        version: "0.8.8",
+      },
+    ],
   },
   etherscan: {
-    apiKey: "MZTCGPGTRA44U7S1Y231HWKHZBBSGU3C93",
+    apiKey: ETHERSCAN_API_KEY,
   },
-  solidity: "0.8.8",
 };

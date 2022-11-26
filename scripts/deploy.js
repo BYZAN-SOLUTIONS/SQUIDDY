@@ -20,17 +20,17 @@ async function main() {
   await vaultFactory.deployed();
   console.log("VaultFactory deployed to:", vaultFactory.address);
 
-  squiddyCore.grantRole(
-    await squiddyCore.VAULT_FACTORY_ROLE(),
-    vaultFactory.address
-  );
+  // squiddyCore.grantRole(
+  //   await squiddyCore.VAULT_FACTORY_ROLE(),
+  //   vaultFactory.address
+  // );
 
-  const hasRole = await squiddyCore.hasRole(
-    await vaultFactory.VAULT_FACTORY_ROLE(),
-    vaultFactory.address
-  );
+  // const hasRole = await squiddyCore.hasRole(
+  //   await vaultFactory.VAULT_FACTORY_ROLE(),
+  //   vaultFactory.address
+  // );
 
-  console.log(`VaultFactory has VAULT_FACTORY_ROLE: ${hasRole}`);
+  // console.log(`VaultFactory has VAULT_FACTORY_ROLE: ${hasRole}`);
 }
 
 // We recommend this pattern to be able to use async/await everywhere

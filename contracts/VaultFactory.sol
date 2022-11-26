@@ -4,7 +4,7 @@ pragma solidity 0.8.8;
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "./proxy/BeaconProxy.sol";
 import "./proxy/Beacon.sol";
-import "./SquiddyVault.sol";
+import "./Vault.sol";
 
 contract VaultFactory {
     using Counters for Counters.Counter;
@@ -44,19 +44,19 @@ contract VaultFactory {
         string memory _name,
         string memory _symbol,
         address _managerAddress,
-        address _assetAddress,
+        address _assetAddress
     ) public {
         vaultId.increment();
         uint256 _vaultId = vaultId.current();
 
         BeaconProxy vault = new BeaconProxy(
-            address(squiddyCoreBeacon),
+            address(squiddyCoreImplementation),
             abi.encodeWithSelector(
-                SquiddyCore(payable(address(0))).initializeBeaconProxy.selector,
+                Vault(payable(address(0))).initializeBeaconProxy.selector,
                 _assetAddress,
                 _managerAddress,
                 _name,
-                _symbol,
+                _symbol
             )
         );
 
@@ -123,10 +123,6 @@ contract VaultFactory {
     }
 
     function removeVaultContractFromFrontend(uint8 index) public {
-        require(
-            hasRole(VAULT_ADMIN, msg.sender),
-            "VaultFactory: must have vault admin role to remove vault"
-        );
         uint256 vaultCount = vaultId.current();
         require(
             index <= vaultCount,
