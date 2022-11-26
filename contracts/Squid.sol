@@ -124,7 +124,7 @@ contract Squiddy {
     }
 
   /**
-      @notice SQUID should not have a > 0 balance when called Withdraws all funds from Squid 
+      @notice SQUID should not have a > 0 balance when called Withdraws all funds from Squid &&
       @param _strategy The strategy to deposit to.
       @param _token The token to deposit.
       @param parts The number of parts to split the swap into.

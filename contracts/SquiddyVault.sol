@@ -33,9 +33,9 @@ contract Vault is ERC20, IERC4626 {
         vaultManager = _vaultManager;
     }
 
-    /*くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡
-                        DEPOSIT/WITHDRAWAL LOGIC
-    くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡*/
+    /*くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡
+                                          DEPOSIT/WITHDRAWAL LOGIC
+    くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡*/
 
     function deposit(uint256 amount, address to) public override returns (uint256 shares) {
         require((shares = previewDeposit(amount)) != 0, "ZERO_SHARES");
@@ -106,9 +106,9 @@ contract Vault is ERC20, IERC4626 {
         asset.safeTransfer(to, amount);
     }
 
-    /*くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡
-                         INTERNAL HOOKS LOGIC
-    くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡*/
+    /*くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡
+                                            INTERNAL HOOKS LOGIC
+    くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡*/
 
     /// @notice Pull funds from strategy to Vault if needed.
     /// Withdraw at least requested amount to the Vault. Covers withdraw/performance fees of strat. Leaves dust tokens.
@@ -116,12 +116,12 @@ contract Vault is ERC20, IERC4626 {
         uint256 _withdraw = (amount + ((amount * 50) / 10000)) - idleFloat();
         ISquid(squid).withdraw(address(asset), _withdraw);
     }
-
+    // todo: add afterDeposit hook logic
     function afterDeposit(uint256 amount) internal {}
 
-    /*くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡
-                        ACCOUNTING LOGIC
-    くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡*/
+    /*くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡
+                                              ACCOUNTING LOGIC
+    くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡*/
 
     /// @notice Sum of idle funds and funds deployed to Strategy.
     function totalAssets() public view override returns (uint256) {
@@ -189,9 +189,9 @@ contract Vault is ERC20, IERC4626 {
         return supply == 0 ? shares : shares.mulDivDown(totalAssets(), totalSupply);
     }
 
-    /*くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡
-                            SQUID LOGIC
-    くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡*/
+    /*くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡
+                                                SQUID LOGIC
+    くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡*/
 
     function setMin(uint256 _min) external {
         require(msg.sender == vaultManager, "no access to non-squid");
