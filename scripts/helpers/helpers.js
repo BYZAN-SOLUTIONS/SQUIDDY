@@ -1,8 +1,9 @@
-import { ethers } from "hardhat";
+const  hre = require("hardhat");
 
-export async function checkUserBalances(signers, vaultContract) {
+async function checkUserBalances(signers, vaultContract) {
+  let _vaultInstance = await hre.ethers.getContractAt("Vault", vaultContract);
   for (let i = 0; i <= signers.slice(0, 3).length; i++) {
-    const vaultInstance = vaultContract.connect(signers[i]);
+    const vaultInstance = await _vaultInstance.connect(signers[i]);
     const userUnderlyingInVault = await vaultInstance.assetsOf(
       signers[i].address
     );
@@ -24,8 +25,9 @@ export async function checkUserBalances(signers, vaultContract) {
   }
 }
 
-export async function checkSingleBalance(signer, vaultContract) {
-  const vaultInstance = vaultContract.connect(signer);
+ async function checkSingleBalance(signer, vaultContract) {
+  const _vaultInstance = await hre.ethers.getContractAt("Vault", vaultContract);
+  const vaultInstance = _vaultInstance.connect(signer);
   const userUnderlyingInVault = await vaultInstance.assetsOf(signer.address);
   const userSharesFromUnderlying = await vaultInstance.previewRedeem(
     userUnderlyingInVault
@@ -34,54 +36,63 @@ export async function checkSingleBalance(signer, vaultContract) {
   const availableInVaultOutsideStrat = await vaultInstance.freeFloat();
   const result =
     "totalAssets()" +
-    ethers.utils.formatUnits(totalUnderlyingInVault) +
+    hre.ethers.utils.formatUnits(totalUnderlyingInVault) +
     " freeFloat(): " +
-    ethers.utils.formatUnits(availableInVaultOutsideStrat) +
+    hre.ethers.utils.formatUnits(availableInVaultOutsideStrat) +
     " user underlyingInVault: " +
-    ethers.utils.formatUnits(userUnderlyingInVault.toString()) +
+    hre.ethers.utils.formatUnits(userUnderlyingInVault.toString()) +
     " user sharesFromUnderlying: " +
-    ethers.utils.formatUnits(userSharesFromUnderlying.toString());
+    hre.ethers.utils.formatUnits(userSharesFromUnderlying.toString());
   console.log(result);
 }
 
-export async function vaultBalanceSheet(vaultContract, strategyContract) {
-  const balance = await vaultContract.totalAssets();
-  console.log("totalAssets():", ethers.utils.formatUnits(balance.toString()));
+async function vaultBalanceSheet(vaultContract, strategyContract) {
+  const vaultInstance = await hre.ethers.getContractAt("Vault", vaultContract);
+  let strategyInstance = await hre.ethers.getContractAt("DaiStrategy", strategyContract);
+  const balance = await vaultInstance.totalAssets();
+  console.log("totalAssets():", hre.ethers.utils.formatUnits(balance.toString()));
 
-  const availableInVaultOutsideStrat = await vaultContract.idleFloat();
+  const availableInVaultOutsideStrat = await vaultInstance.idleFloat();
   console.log(
     "idleFloat():",
-    ethers.utils.formatUnits(availableInVaultOutsideStrat.toString())
+    hre.ethers.utils.formatUnits(availableInVaultOutsideStrat.toString())
   );
 
-  const availableToDepositIntoStrategy = await vaultContract.freeFloat();
+  const availableToDepositIntoStrategy = await vaultInstance.freeFloat();
   console.log(
     "freeFloat():",
-    ethers.utils.formatUnits(availableToDepositIntoStrategy.toString())
+    hre.ethers.utils.formatUnits(availableToDepositIntoStrategy.toString())
   );
 
-  const balanceOf = await strategyContract.balanceOf();
+  const balanceOf = await strategyInstance.balanceOf();
   console.log(
     "strategy balanceOf:",
-    ethers.utils.formatUnits(balanceOf.toString())
+    hre.ethers.utils.formatUnits(balanceOf.toString())
   );
 
-  const balanceC = await strategyContract.balanceC();
+  const balanceC = await strategyInstance.balanceC();
   console.log(
     "strategy balanceC:",
-    ethers.utils.formatUnits(balanceC.toString())
+    hre.ethers.utils.formatUnits(balanceC.toString())
   );
 
-  const balanceCInToken = await strategyContract.balanceCInToken();
+  const balanceCInToken = await strategyInstance.balanceCInToken();
   console.log(
     "strategy balanceCInToken:",
-    ethers.utils.formatUnits(balanceCInToken.toString())
+    hre.ethers.utils.formatUnits(balanceCInToken.toString())
   );
 }
 
-export async function mineBlocks() {
+async function mineBlocks() {
   for (let index = 0; index < 10; index++) {
     console.log("mining block", index);
-    await ethers.provider.send("evm_mine", []);
+    await hre.ethers.provider.send("evm_mine", []);
   }
 }
+
+module.exports = {
+  checkUserBalances,
+  checkSingleBalance,
+  vaultBalanceSheet,
+  mineBlocks,
+};

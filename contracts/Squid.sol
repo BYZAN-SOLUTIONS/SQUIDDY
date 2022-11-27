@@ -8,7 +8,7 @@ import "./interfaces/OneSplitAudit.sol";
 import "./interfaces/IStrategy.sol";
 import "./interfaces/Converter.sol";
 
-contract Squiddy {
+contract Squid {
     address public vaultManager;
 
     address public onesplit;

@@ -1554,10 +1554,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     "fastq" "^1.6.0"
 
-"@nomicfoundation/hardhat-chai-matchers@^1.0.0":
-  "integrity" "sha512-ZPcruE17yv8M/d9GYGz7l/iYEycwlA3t7rq1cfUEWPj7kIxJ5tSJEzPi2SqHj8LZdcsiU5FF/y/9W8ZFk0FHfw=="
-  "resolved" "https://registry.npmjs.org/@nomicfoundation/hardhat-chai-matchers/-/hardhat-chai-matchers-1.0.2.tgz"
-  "version" "1.0.2"
+"@nomicfoundation/hardhat-chai-matchers@^1.0.0", "@nomicfoundation/hardhat-chai-matchers@^1.0.4":
+  "integrity" "sha512-n/5UMwGaUK2zM8ALuMChVwB1lEPeDTb5oBjQ1g7hVsUdS8x+XG9JIEp4Ze6Bwy98tghA7Y1+PCH4SNE2P3UQ2g=="
+  "resolved" "https://registry.npmjs.org/@nomicfoundation/hardhat-chai-matchers/-/hardhat-chai-matchers-1.0.4.tgz"
+  "version" "1.0.4"
   dependencies:
     "@ethersproject/abi" "^5.1.2"
     "@types/chai-as-promised" "^7.1.3"

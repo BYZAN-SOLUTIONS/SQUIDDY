@@ -1,5 +1,3 @@
-const ethers = require("ethers");
-const hre = require("hardhat");
 const {
   checkUserBalances,
   checkSingleBalance,
@@ -7,137 +5,138 @@ const {
   mineBlocks,
 } = require("./helpers/helpers");
 
-const DAI_ABI = require("../abis/DAI.json");
+const  hre = require("hardhat");
+const { BigNumber, Contract } = require("ethers");
+const DAI_ABI = require("../abis/dai.js");
 const DAI_ADDRESS = "0x6b175474e89094c44da98b954eedeac495271d0f";
-const richDaiOwnerAddress = "0x075e72a5edf65f0a5f44699c7654c1a76941ddc8";
 
 async function main() {
-  let signers;
-  let DAIContract;
-  let controllerContract;
+
+  const [deployer] = await hre.ethers.getSigners();
+  let signers = await hre.ethers.getSigners();
+  let DAIContract = new Contract(DAI_ADDRESS, DAI_ABI, deployer);
+  let squidContract;
   let vaultContract;
   let strategyContract;
 
-  const [deployer] = await ethers.getSigners();
-  signers = await ethers.getSigners();
-
   await hre.network.provider.request({
     method: "hardhat_impersonateAccount",
-    params: [richDaiOwnerAddress], // 200 mln dai
+    params: ["0x075e72a5edf65f0a5f44699c7654c1a76941ddc8"], // 200 mln dai
   });
 
-  const richDaiOwner = await ethers.getSigner(richDaiOwnerAddress);
+  const richDaiOwner = await hre.ethers.getSigner("0x075e72a5edf65f0a5f44699c7654c1a76941ddc8");
   DAIContract = new Contract(DAI_ADDRESS, DAI_ABI, richDaiOwner);
 
   await transferDaiToSigners();
 
   async function transferDaiToSigners() {
-    const toMint = ethers.utils.parseEther("110000");
+    const toMint = hre.ethers.utils.parseEther("110000");
     for (let i = 0; i < signers.length; i++) {
       await DAIContract.transfer(signers[i].address, toMint);
     }
   }
 
-  const SquiddyCore = await hre.ethers.getContractFactory("SquiddyCore");
-  const VaultFactory = await hre.ethers.getContractFactory("VaultFactory");
+  const deploySquid = async () => {
+    const Squid = await hre.ethers.getContractFactory("Squid");
+    let squidDeploy = await Squid.deploy('0x0000000000000000000000000000000000000000');
+    await squidDeploy.deployed();
+    squidContract = squidDeploy.address;
+    console.log("Squid deployed to:", squidContract);
+  };
 
-  // Deploy SquiddyCore
-  const squiddyCore = await SquiddyCore.deploy();
-  await squiddyCore.deployed();
-  console.log("SquiddyCore deployed to:", squiddyCore.address);
+  const deployVault = async () => {
+    const Vault = await hre.ethers.getContractFactory("Vault");
+    let vaultDeploy = await Vault.deploy(DAI_ADDRESS, deployer.address,'SpumoniGardens', 'SG', squidContract);
+    await vaultDeploy.deployed();
+    vaultContract = vaultDeploy.address;
+    console.log("Vault deployed to:", vaultContract);
+  };
 
-  // Deploy VaultFactory
-  const vaultFactory = await VaultFactory.deploy(squiddyCore.address);
-  console.log("Tx receipt:", vaultFactory);
-  const deployed = await vaultFactory.deployed();
-  console.log("deployed:", deployed);
-  console.log("VaultFactory deployed to:", vaultFactory.address);
+  const deployStrategy = async () => {
+    let squidInstance = await hre.ethers.getContractAt("Squid", squidContract);
+    let vaultInstance = await hre.ethers.getContractAt("Vault", vaultContract);
+    const daiStrategy = await hre.ethers.getContractFactory("DaiStrategy");
+    let strategyDeploy = await daiStrategy.deploy(squidContract);
+    await squidInstance.functions.setVault(DAI_ADDRESS ,vaultInstance.address);
+    await strategyDeploy.deployed();
+    strategyContract = strategyDeploy.address;
+    await console.log("Strategy deployed to:", strategyContract);
+  };
 
-  //   await deployController();
-  //   await deployVault();
-  //   await deployAndSetStrategy();
-  //   await depositSomeUnderlyingToVault();
-  //   await callEarnOnVault();
-  //   await callHarvestFromStrat();
+  const setStrategy = async () => {
+    let squidInstance = await hre.ethers.getContractAt("Squid", squidContract);
+    let strategyInstance = await hre.ethers.getContractAt("Vault", strategyContract);
+    await squidInstance.functions.approveStrategy(DAI_ADDRESS, strategyInstance.address);
+    await squidInstance.functions.setStrategy(DAI_ADDRESS, strategyInstance.address);
+    await console.log("Strategy set");
+  };
 
-  //   async function deployController() {
-  //     const controllerFactory = new Controller__factory(deployer);
-  //     // rewards accumulated in Vault (set rewards later)
-  //     controllerContract = await controllerFactory.deploy(
-  //       "0x0000000000000000000000000000000000000000"
-  //     );
-  //   }
+  async function depositUnderlyingToVault() {
+    const depositAmount = ethers.utils.parseEther("10000");
+    let vaultInstance = await hre.ethers.getContractAt("Vault", vaultContract);
+    let strategyInstance = await hre.ethers.getContractAt("DaiStrategy", strategyContract);
 
-  //   async function deployVault() {
-  //     const vaultFactory = new Vault__factory(deployer);
-  //     vaultContract = await vaultFactory.deploy(
-  //       DAI_ADDRESS,
-  //       "DaiVault",
-  //       "yDAI",
-  //       deployer.address,
-  //       controllerContract.address
-  //     );
-  //   }
+    for (let i = 0; i < signers.length; i++) {
+        const instanceERC = DAIContract.connect(signers[i]);
+        const instanceVAULT = vaultInstance.connect(signers[i]);
+        await instanceERC.approve(vaultInstance.address, depositAmount);
+        await instanceVAULT.deposit(depositAmount, signers[i].address);
+      }
 
-  //   async function deployAndSetStrategy() {
-  //     const strategyFactory = new StrategyDAICompoundBasic__factory(deployer);
-  //     strategyContract = await strategyFactory.deploy(controllerContract.address);
-  //     await controllerContract.setVault(DAI_ADDRESS, vaultContract.address);
-  //     await controllerContract.approveStrategy(
-  //       DAI_ADDRESS,
-  //       strategyContract.address
-  //     );
-  //     await controllerContract.setStrategy(DAI_ADDRESS, strategyContract.address);
-  //   }
+      await checkUserBalances(signers, vaultInstance.address);
+      await vaultBalanceSheet(vaultInstance.address, strategyInstance.address);
+      console.log("Deposited 10000 DAI to vault");
+    }
 
-  //   async function depositSomeUnderlyingToVault() {
-  //     const depositAmount = ethers.utils.parseEther("10000");
-  //     for (let i = 0; i < signers.length; i++) {
-  //       const instanceERC = DAIContract.connect(signers[i]);
-  //       const instanceVAULT = vaultContract.connect(signers[i]);
-  //       await instanceERC.approve(vaultContract.address, depositAmount);
-  //       await instanceVAULT.deposit(depositAmount, signers[i].address);
-  //     }
-  //     await checkUserBalances(signers, vaultContract);
-  //     await vaultBalanceSheet(vaultContract, strategyContract);
-  //   }
+  async function callEarnOnVault() {
+    let vaultInstance = await hre.ethers.getContractAt("Vault", vaultContract);
+      await vaultInstance.functions.earn();
+      await mineBlocks();
+      await checkUserBalances(signers, vaultInstance.address);
+    }
 
-  //   async function callEarnOnVault() {
-  //     await vaultContract.earn();
-  //     await mineBlocks();
-  //     await checkUserBalances(signers, vaultContract);
-  //   }
+    async function callHarvestFromStrat() {
+      let strategyInstance = await hre.ethers.getContractAt("DaiStrategy", strategyContract);
+      let vaultInstance = await hre.ethers.getContractAt("Vault", vaultContract);
+      await strategyInstance.functions.harvest();
+      await vaultBalanceSheet(vaultInstance.address, strategyInstance.address);
+    }
 
-  //   async function callHarvestFromStrat() {
-  //     await strategyContract.harvest();
-  //     await vaultBalanceSheet(vaultContract, strategyContract);
-  //   }
+    async function redeemShares() {
+      let vaultInstance = await hre.ethers.getContractAt("Vault", vaultContract);
+      let strategyInstance = await hre.ethers.getContractAt("DaiStrategy", strategyContract);
+      const userShareTokenBalance = await vaultInstance.balanceOf(
+        deployer.address
+      );
+      console.log(
+        "userSharetoken",
+        hre.ethers.utils.formatUnits(userShareTokenBalance.toString())
+      );
+      const userEarningsOnShare = await vaultInstance.previewRedeem(
+        userShareTokenBalance
+      );
+      console.log(
+        "userEarningsOnShare",
+        hre.ethers.utils.formatUnits(userEarningsOnShare.toString())
+      );
+      await vaultInstance.redeem(
+        userShareTokenBalance,
+        deployer.address,
+        deployer.address
+      ); // amount, to, from
+      await checkSingleBalance(deployer, vaultInstance.address);
+      await vaultBalanceSheet( vaultInstance.address, strategyInstance.address);
+    }
 
-  //   await redeemShares();
+  await deploySquid();
+  await deployVault();
+  await deployStrategy();
+  await setStrategy();
+  await depositUnderlyingToVault();
+  await callEarnOnVault();
+  await callHarvestFromStrat();
+  await redeemShares();
 
-  //   async function redeemShares() {
-  //     const userShareTokenBalance = await vaultContract.balanceOf(
-  //       deployer.address
-  //     );
-  //     console.log(
-  //       "userSharetoken",
-  //       ethers.utils.formatUnits(userShareTokenBalance.toString())
-  //     );
-  //     const userEarningsOnShare = await vaultContract.previewRedeem(
-  //       userShareTokenBalance
-  //     );
-  //     console.log(
-  //       "userEarningsOnShare",
-  //       ethers.utils.formatUnits(userEarningsOnShare.toString())
-  //     );
-  //     await vaultContract.redeem(
-  //       userShareTokenBalance,
-  //       deployer.address,
-  //       deployer.address
-  //     ); // amount, to, from
-  //     await checkSingleBalance(deployer, vaultContract);
-  //     await vaultBalanceSheet(vaultContract, strategyContract);
-  //   }
 }
 
 main()

@@ -10,7 +10,7 @@ import "../interfaces/ISquid.sol";
 import "hardhat/console.sol";
 
 
-contract StrategyDAICompoundBasic{
+contract DaiStrategy{
 
     address public constant want = address(0x6B175474E89094C44Da98b954EedeAC495271d0F);
     // Comptroller address for compound.finance
@@ -22,6 +22,7 @@ contract StrategyDAICompoundBasic{
     // used for comp <> weth <> dai route
     address public constant weth = address(0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2); 
 
+    //dummy integer
     uint256 public performanceFee = 500;
     uint256 public constant performanceMax = 10000;
 

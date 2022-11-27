@@ -158,12 +158,11 @@ contract Vault is ERC20, IERC4626 {
         return (totalFloat * minFloat) / maxFloat;
     }
 
-    /// todo: add subscription logic WIP
     function maxDeposit(address) public pure override returns (uint256) {
         return type(uint256).max;
     }
 
-    /// todo: add subscription logic WIP
+
     function maxMint(address) public pure override returns (uint256) {
         return type(uint256).max;
     }

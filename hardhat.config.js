@@ -1,9 +1,7 @@
 require("@nomicfoundation/hardhat-toolbox");
-
 require("@nomiclabs/hardhat-etherscan");
-// require("@nomiclabs/hardhat-waffle");
-require("hardhat-gas-reporter");
 require("@nomiclabs/hardhat-ethers");
+require("@nomicfoundation/hardhat-chai-matchers");
 require("dotenv").config();
 
 // require path
