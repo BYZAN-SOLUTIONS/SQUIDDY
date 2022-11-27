@@ -6,7 +6,7 @@ const {
 } = require("./helpers/helpers");
 
 const  hre = require("hardhat");
-const { BigNumber, Contract } = require("ethers");
+const {Contract} = require("ethers");
 const DAI_ABI = require("../abis/dai.js");
 const DAI_ADDRESS = "0x6b175474e89094c44da98b954eedeac495271d0f";
 
@@ -27,7 +27,6 @@ async function main() {
   const richDaiOwner = await hre.ethers.getSigner("0x075e72a5edf65f0a5f44699c7654c1a76941ddc8");
   DAIContract = new Contract(DAI_ADDRESS, DAI_ABI, richDaiOwner);
 
-  await transferDaiToSigners();
 
   async function transferDaiToSigners() {
     const toMint = hre.ethers.utils.parseEther("110000");
@@ -36,23 +35,26 @@ async function main() {
     }
   }
 
-  const deploySquid = async () => {
+  await transferDaiToSigners();
+
+
+  async function deploySquid() {
     const Squid = await hre.ethers.getContractFactory("Squid");
     let squidDeploy = await Squid.deploy('0x0000000000000000000000000000000000000000');
     await squidDeploy.deployed();
     squidContract = squidDeploy.address;
     console.log("Squid deployed to:", squidContract);
-  };
+  }
 
-  const deployVault = async () => {
+  async function deployVault() {
     const Vault = await hre.ethers.getContractFactory("Vault");
     let vaultDeploy = await Vault.deploy(DAI_ADDRESS, deployer.address,'SpumoniGardens', 'SG', squidContract);
     await vaultDeploy.deployed();
     vaultContract = vaultDeploy.address;
     console.log("Vault deployed to:", vaultContract);
-  };
+  }
 
-  const deployStrategy = async () => {
+  async function deployStrategy() {
     let squidInstance = await hre.ethers.getContractAt("Squid", squidContract);
     let vaultInstance = await hre.ethers.getContractAt("Vault", vaultContract);
     const daiStrategy = await hre.ethers.getContractFactory("DaiStrategy");
@@ -61,15 +63,15 @@ async function main() {
     await strategyDeploy.deployed();
     strategyContract = strategyDeploy.address;
     await console.log("Strategy deployed to:", strategyContract);
-  };
+  }
 
-  const setStrategy = async () => {
+  async function setStrategy(){
     let squidInstance = await hre.ethers.getContractAt("Squid", squidContract);
     let strategyInstance = await hre.ethers.getContractAt("Vault", strategyContract);
     await squidInstance.functions.approveStrategy(DAI_ADDRESS, strategyInstance.address);
     await squidInstance.functions.setStrategy(DAI_ADDRESS, strategyInstance.address);
     await console.log("Strategy set");
-  };
+  }
 
   async function depositUnderlyingToVault() {
     const depositAmount = ethers.utils.parseEther("10000");
