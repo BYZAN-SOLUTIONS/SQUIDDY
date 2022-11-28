@@ -123,47 +123,6 @@ contract Squid {
         (expected, ) = OneSplitAudit(onesplit).getExpectedReturn(_token, _want, _balance, parts, 0);
     }
 
-  /**
-      @notice SQUID should not have a > 0 balance when called Withdraws all funds from Squid &&
-      @param _strategy The strategy to deposit to.
-      @param _token The token to deposit.
-      @param parts The number of parts to split the swap into.
-     */
-  function conStratHelper(
-        address _strategy,
-        address _token,
-        uint256 parts
-    ) public {
-        require( msg.sender == vaultManager, "!vaultManager");
-        // This contract should never have value in it, but just incase since this is a public call
-        uint256 _before = IERC20(_token).balanceOf(address(this));
-        Strategy(_strategy).withdraw(_token);
-        uint256 _after = IERC20(_token).balanceOf(address(this));
-        if (_after > _before) {
-            uint256 _amount = _after - _before;
-            address _want = Strategy(_strategy).want();
-            uint256[] memory _distribution;
-            uint256 _expected;
-            _before = IERC20(_want).balanceOf(address(this));
-            IERC20(_token).approve(onesplit, 0);
-            IERC20(_token).approve(onesplit, _amount);
-            (_expected, _distribution) = OneSplitAudit(onesplit).getExpectedReturn(_token, _want, _amount, parts, 0);
-            OneSplitAudit(onesplit).swap(_token, _want, _amount, _expected, _distribution, 0);
-            _after = IERC20(_want).balanceOf(address(this));
-            if (_after > _before) {
-                _amount = _after - _before;
-                uint256 _reward = (_amount * split) / max;
-                earn(_want, _amount - _reward);
-                IERC20(_want).transfer(rewards, _reward);
-            }
-        }
-    }
-
-    /**
-      @notice Withdraws all funds in 
-      @param _token The strategy to withdraw from.
-      @param _amount The amount of token to withdraw.
-     */
 
     function withdraw(address _token, uint256 _amount) public {
         require(msg.sender == vaults[_token], "!vault");

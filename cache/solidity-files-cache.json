@@ -539,8 +539,8 @@
       ]
     },
     "/Users/ae0h/ae0hPro/encode_mev_hack/contracts/Squid.sol": {
-      "lastModificationDate": 1669565986728,
-      "contentHash": "38082362ac7f3b680788b851723bac54",
+      "lastModificationDate": 1669593890251,
+      "contentHash": "9a7bb2589b83de39212b2fbbae5ceb53",
       "sourceName": "contracts/Squid.sol",
       "solcConfig": {
         "version": "0.8.8",
