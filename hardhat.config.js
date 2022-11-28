@@ -4,10 +4,6 @@ require("@nomiclabs/hardhat-ethers");
 require("@nomicfoundation/hardhat-chai-matchers");
 require("dotenv").config();
 
-// require path
-// const path = require("path");
-// const resolve = require("path").resolve;
-
 const chainIds = {
   ganache: 1337,
   goerli: 5,
