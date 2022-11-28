@@ -54,6 +54,13 @@ async function main() {
     console.log("Vault deployed to:", vaultContract);
   }
 
+  async function setRewards() {
+    let squidInstance = await hre.ethers.getContractAt("Squid", squidContract);
+    let vaultInstance = await hre.ethers.getContractAt("Vault", vaultContract);
+    await squidInstance.functions.setRewards(vaultInstance.address);
+    console.log("Rewards set:", vaultInstance.address);
+  }
+
   async function deployStrategy() {
     let squidInstance = await hre.ethers.getContractAt("Squid", squidContract);
     let vaultInstance = await hre.ethers.getContractAt("Vault", vaultContract);
@@ -132,6 +139,7 @@ async function main() {
 
   await deploySquid();
   await deployVault();
+  await setRewards();
   await deployStrategy();
   await setStrategy();
   await depositUnderlyingToVault();
