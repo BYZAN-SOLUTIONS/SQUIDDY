@@ -14,13 +14,13 @@ async function checkUserBalances(signers, vaultContract) {
     const availableInVaultOutsideStrat = await vaultInstance.freeFloat();
     const result =
       "totalAssets()" +
-      ethers.utils.formatUnits(totalUnderlyingInVault) +
+      hre.ethers.utils.formatUnits(totalUnderlyingInVault) +
       " freeFloat(): " +
-      ethers.utils.formatUnits(availableInVaultOutsideStrat) +
+      hre.ethers.utils.formatUnits(availableInVaultOutsideStrat) +
       " user underlyingInVault: " +
       ethers.utils.formatUnits(userUnderlyingInVault.toString()) +
       " user sharesFromUnderlying: " +
-      ethers.utils.formatUnits(userSharesFromUnderlying.toString());
+      hre.ethers.utils.formatUnits(userSharesFromUnderlying.toString());
     console.log(result);
   }
 }
@@ -84,7 +84,7 @@ async function vaultBalanceSheet(vaultContract, strategyContract) {
 }
 
 async function mineBlocks() {
-  for (let index = 0; index < 10; index++) {
+  for (let index = 0; index < 300; index++) {
     console.log("mining block", index);
     await hre.ethers.provider.send("evm_mine", []);
   }
