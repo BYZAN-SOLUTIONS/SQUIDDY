@@ -19,7 +19,7 @@
 
 Architecture:
 
-- Etheruem: All contracts are on Goerli Testnet.
+- Etheruem: All contracts are on Goerli Testnet/forked mainnet.
 - Next.js for frontend
 - Hardhat and Remix for Solidity development
 
@@ -27,7 +27,9 @@ Architecture:
 ## Contracts
 
 - Factory Contract: 
-- SquiddyCore Contract: 
+- Squid Contract: 
+- Vault Contract
+- Default Strategies
 
 <!-- GETTING STARTED -->
 
@@ -50,11 +52,14 @@ Architecture:
    ```sh
    npm install
    ```
-3. Run Dev Server
+3. Run Hardhat Node
    ```sh
-   npm run dev
+   npx Hardhat node
    ```
-
+4. Run default strategy on forked mainnet
+   ```sh
+    npx hardhat run scripts/squiddyFork.js --network localhost 
+   ```
 <!-- CONTRIBUTING -->
 
 ## Contributing
