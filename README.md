@@ -2,7 +2,7 @@
 
  Squiddy is a decentralized protocol that allows Ethereum users to earn yield on their assets by depositing them into a vault.
 
-<img src="public/images/squidradient.png" href="" alt="Logo" >
+<img src="public/images/squidradient.png" >
 
 ## Description
 
