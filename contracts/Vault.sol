@@ -128,7 +128,9 @@ contract Vault is ERC20, IERC4626 {
     }
 
     // todo: add afterDeposit hook logic
-    function afterDeposit(uint256 amount) internal {}
+    function afterDeposit(uint256 amount) internal {
+        
+    }
 
     /*くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡
                                               ACCOUNTING LOGIC
