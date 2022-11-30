@@ -254,8 +254,8 @@
       ]
     },
     "/Users/ae0h/ae0hPro/SQUIDDY.XYZ/contracts/Vault.sol": {
-      "lastModificationDate": 1669583461679,
-      "contentHash": "d027001271085838b1da34769f287aa9",
+      "lastModificationDate": 1669747245074,
+      "contentHash": "5510b437dc017ee3e52da8ac4fec3f0c",
       "sourceName": "contracts/Vault.sol",
       "solcConfig": {
         "version": "0.8.8",
@@ -692,8 +692,8 @@
       ]
     },
     "/Users/ae0h/ae0hPro/SQUIDDY.XYZ/contracts/VaultFactory.sol": {
-      "lastModificationDate": 1669581121115,
-      "contentHash": "ae6158e153959dccd50b6e70f27ce0a2",
+      "lastModificationDate": 1669747245074,
+      "contentHash": "33f3d2fcf8c077a472b4e1fe5648008a",
       "sourceName": "contracts/VaultFactory.sol",
       "solcConfig": {
         "version": "0.8.8",

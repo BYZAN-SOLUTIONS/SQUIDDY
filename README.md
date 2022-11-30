@@ -1,6 +1,6 @@
-# Squiddy
+# Squidy
 
- Squiddy is a decentralized protocol that allows Ethereum users to earn yield on their assets by depositing them into a vault.
+ Squidy is a decentralized protocol that allows Ethereum users to earn yield on their assets by depositing them into a vault.
 
 <img src="public/SquidyFinal.png" >
 
@@ -58,7 +58,7 @@ Architecture:
    ```
 4. Run default strategy on forked mainnet
    ```sh
-    npx hardhat run scripts/squiddyFork.js --network localhost 
+    npx hardhat run scripts/squidyFork.js --network localhost 
    ```
 <!-- CONTRIBUTING -->
 
