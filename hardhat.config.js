@@ -8,13 +8,11 @@ const chainIds = {
   ganache: 1337,
   goerli: 5,
   hardhat: 31337,
-  kovan: 42,
   mainnet: 1,
-  rinkeby: 4,
-  ropsten: 3,
 };
 
 // https://eth-mainnet.alchemyapi.io/v2/<key>
+
 
 const MNEMONIC = process.env.MNEMONIC || "";
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY || "";
@@ -28,6 +26,7 @@ function createTestnetConfig(network) {
       count: 10,
       initialIndex: 0,
       mnemonic: MNEMONIC,
+      // m / purpose' / coin_type' / account' / change / address_index
       path: "m/44'/60'/0'/0",
     },
     chainId: chainIds[network],

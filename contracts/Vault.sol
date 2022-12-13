@@ -128,9 +128,9 @@ contract Vault is ERC20, IERC4626 {
     }
 
     // todo: add afterDeposit hook logic
-    function afterDeposit(uint256 amount) internal {
-        amount - ((amount * 50) / 10000); 
-       ISquid(squid).earn(address(asset), amount);
+    function afterDeposit(uint256 amount) internal { 
+    //    amount = (amount * 10000) / (10000 - minFloat);
+    //    ISquid(squid).earn(address(asset), amount);
         
     }
 

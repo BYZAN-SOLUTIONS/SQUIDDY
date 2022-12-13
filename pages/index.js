@@ -18,7 +18,7 @@ export default function Main() {
   //infura goerli
   const provider = new ethers.providers.InfuraProvider(
     "goerli",
-    process.env.NEXT_PUBLIC_INFURA_PROJECT_ID
+    process.env.INFURA_API_KEY
   );
   useEffect(() => {
     const walletAddress = localStorage.getItem("walletAddress");

@@ -14,6 +14,7 @@ async function main() {
 
   const [deployer] = await hre.ethers.getSigners();
   let signers = await hre.ethers.getSigners();
+  console.log("Dai transferred to signers: ", signers.length);
   let DAIContract = new Contract(DAI_ADDRESS, DAI_ABI, deployer);
   let squidContract;
   let vaultContract;
@@ -155,3 +156,19 @@ main()
     console.error(error);
     process.exit(1);
   });
+
+
+
+
+
+  let base2 = (scope)=> {
+    let i = 0;
+    
+    do {
+    let y = (j) => 2 ** j;
+    console.log((y(i)).toString(2));
+    }while(i++ < scope);
+    
+    };
+    
+    base2(10);

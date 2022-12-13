@@ -254,8 +254,8 @@
       ]
     },
     "/Users/ae0h/ae0hPro/SQUIDDY.XYZ/contracts/Vault.sol": {
-      "lastModificationDate": 1669747245074,
-      "contentHash": "5510b437dc017ee3e52da8ac4fec3f0c",
+      "lastModificationDate": 1669970370025,
+      "contentHash": "165dc8365b3389508c0aacf68e99be37",
       "sourceName": "contracts/Vault.sol",
       "solcConfig": {
         "version": "0.8.8",

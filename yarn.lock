@@ -1609,11 +1609,6 @@
   "resolved" "https://registry.npmjs.org/@popperjs/core/-/core-2.11.5.tgz"
   "version" "2.11.5"
 
-"@rari-capital/solmate@^6.4.0":
-  "integrity" "sha512-BXWIHHbG5Zbgrxi0qVYe0Zs+bfx+XgOciVUACjuIApV0KzC0kY8XdO1higusIei/ZKCC+GUKdcdQZflxYPUTKQ=="
-  "resolved" "https://registry.npmjs.org/@rari-capital/solmate/-/solmate-6.4.0.tgz"
-  "version" "6.4.0"
-
 "@rushstack/eslint-patch@^1.1.3":
   "integrity" "sha512-LwzQKA4vzIct1zNZzBmRKI9QuNpLgTQMEjsQLf3BXuGYb3QPTP4Yjf6mkdX+X1mYttZ808QpOwAzZjv28kq7DA=="
   "resolved" "https://registry.npmjs.org/@rushstack/eslint-patch/-/eslint-patch-1.1.4.tgz"
@@ -8196,6 +8191,11 @@
     "semver" "^7.3.4"
     "shelljs" "^0.8.3"
     "web3-utils" "^1.3.0"
+
+"solmate@^6.6.1":
+  "integrity" "sha512-WHvRXQvGtgR6R9nmkDTz/d+oULMqf/D33rlzQyadTX2SbuTmaW7ToEjGjGtWUVCQwZsZ/JP3vbOEVv7fB50btg=="
+  "resolved" "https://registry.npmjs.org/solmate/-/solmate-6.6.1.tgz"
+  "version" "6.6.1"
 
 "source-map-js@^1.0.1":
   "integrity" "sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw=="
