@@ -1,132 +1,11 @@
-// // SPDX-License-Identifier: MIT
-// pragma solidity 0.8.8;
-
-// import "@openzeppelin/contracts/utils/Counters.sol";
-// import "./Vault.sol";
-
-// contract VaultFactory {
-//     using Counters for Counters.Counter;
-//     Counters.Counter public vaultId;
-//     Counters.Counter public removedVaults;
-
-
-//     mapping(uint256 => VaultDetails) public vaultId_to_vaultDetails;
-//     mapping(uint256 => address) public vaultId_to_vaultAddress;
-//     mapping(uint256 => bool) public vaultId_to_isActive;
-
-
-//     event NewVault(
-//         string indexed name,
-//         string indexed symbol,
-//         address indexed vaultAddress,
-//         address managerAddress,
-//         uint256 index
-//     );
-
-//     struct VaultDetails {
-//         address vaultAddress;
-//         ERC20 assetAddress;
-//         address managerAddress;
-//         string name;
-//         string symbol;
-//         uint256 index;
-//         address squid;
-
-//     }
-
-//     function buildVault(
-//         ERC20 _assetAddress,
-//         address _managerAddress,
-//         string calldata _name,
-//         string calldata _symbol,
-//         address _squid
-//     ) public {
-//         vaultId.increment();
-//         uint256 _vaultId = vaultId.current();
-//         Vault vault = new Vault(_assetAddress, _managerAddress,_name, _symbol, _squid);
-
-//         vaultId_to_vaultAddress[_vaultId] = address(vault);
-//         vaultId_to_isActive[_vaultId] = true;
-//         vaultId_to_vaultDetails[_vaultId] = VaultDetails(
-//             address(vault),
-//             _assetAddress,
-//             _managerAddress,
-//             _name,
-//             _symbol,
-//             _vaultId,
-//             _squid
-
-//         );
-
-//         emit NewVault(
-//             _name,
-//             _symbol,
-//             address(vault),
-//             _managerAddress,
-//             _vaultId
-//         );
-//     }
-
-//     function getVaultDetails(uint256 _vaultId)
-//         public
-//         view
-//         returns (VaultDetails memory)
-//     {
-//         return vaultId_to_vaultDetails[_vaultId];
-//     }
-
-//     function getVaultAddress(uint256 _vaultId) public view returns (address) {
-//         return vaultId_to_vaultAddress[_vaultId];
-//     }
-
-//     function getVaultCount() public view returns (uint256) {
-//         return vaultId.current();
-//     }
-
-//     function getRemovedVaultCount() public view returns (uint256) {
-//         return removedVaults.current();
-//     }
-
-
-//     function fetchAllVaults() public view returns (VaultDetails[] memory) {
-//         uint256 vaultCount = vaultId.current();
-//         uint256 currentVaultCount = vaultId.current() - removedVaults.current();
-//         uint256 currentIndex = 0;
-
-//         VaultDetails[] memory vaults = new VaultDetails[](currentVaultCount);
-
-//         if (vaultCount == 0) {
-//             return vaults;
-//         }
-
-//         for (uint256 i = 0; i < vaultCount; i++) {
-//             bool status = vaultId_to_isActive[i + 1];
-//             if (status == true) {
-//                 uint256 currentId = i + 1;
-//                 VaultDetails storage currentItem = vaultId_to_vaultDetails[
-//                     currentId
-//                 ];
-//                 vaults[currentIndex] = currentItem;
-//                 currentIndex += 1;
-//             }
-//         }
-//         return vaults;
-//     }
-
-//     function removeVaultContractFromFrontend(uint8 index) public {
-//         uint256 vaultCount = vaultId.current();
-//         require(
-//             index <= vaultCount,
-//             "VaultFactory: index must be less than vault count"
-//         );
-//         require(
-//             vaultId_to_isActive[index],
-//             "VaultFactory: vault already removed"
-//         );
-//         removedVaults.increment();
-//         vaultId_to_isActive[index] = false;
-//     }
-// }
+/*The Auth contract is a Solidity contract that provides a flexible and updatable pattern
+for user authorization. The contract defines an owner and an authority, which can be used 
+to determine whether a given user is authorized to perform certain actions within the contract. 
+The owner is the default authority,but can be changed by calling the setOwner function. 
+The authority is an implementation of the Authority interface, which defines a canCall function
+that can be used to determine whether a given user is authorized to call a given function on a given contract.
+The Auth contract also defines a requiresAuth modifier, which can be used to require that a function can only
+be called by authorized users. */
 
 pragma solidity 0.8.10;
 
@@ -146,9 +25,9 @@ contract VaultFactory is Auth {
     コ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡*/
 
     /// Creates a Vault factory.
-    /// @param _owner The owner of the factory.
+    /// @param _vaultManager The owner of the factory.
     /// @param _authority The Authority of the factory.
-    constructor(address _vaultManager Auth(_vaultManager) {}
+    constructor(address _vaultManager, Authority _authority) Auth(_vaultManager, _authority) {}
 
     /*コ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡
                                                 VAULT DEPLOYMENT LOGIC
@@ -162,8 +41,12 @@ contract VaultFactory is Auth {
     ///  Deploys a new Vault which supports a specific underlying token.
     /// @dev This will revert if a Vault that accepts the same underlying token has already been deployed.
     /// @param underlying The ERC20 token that the Vault should accept.
+    /// @param vaultManager The owner of the new Vault.
+    /// @param name The name of the new Vault.
+    /// @param symbol The symbol of the new Vault.
+    /// @param squid The address of the Squid contract.
     /// @return vault The newly deployed Vault contract which accepts the provided underlying token.
-    function deployVault(ERC20 underlying, address vaultManager, string name, string symbol, address squid) external returns (Vault vault) {
+    function deployVault(ERC20 underlying, address vaultManager, string calldata name, string calldata symbol, address squid) external returns (Vault vault) {
         // Use the CREATE2 opcode to deploy a new Vault contract.
         // This will revert if a Vault which accepts this underlying token has already
         // been deployed, as the salt would be the same and we can't deploy with it twice.

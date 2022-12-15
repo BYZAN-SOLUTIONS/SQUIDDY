@@ -3,7 +3,7 @@
 pragma solidity ^0.8.8;
 
 import { IERC20 } from "./interfaces/IERC20.sol";
-import { SafeTransferLib } from "@rari-capital/solmate/src/utils/SafeTransferLib.sol";
+import { SafeTransferLib } from "solmate/src/utils/SafeTransferLib.sol";
 import "./interfaces/OneSplitAudit.sol";
 import "./interfaces/IStrategy.sol";
 import "./interfaces/Converter.sol";

@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 pragma solidity ^0.8.8;
 
-import {ERC20} from "@rari-capital/solmate/src/tokens/ERC20.sol";
-import {SafeTransferLib} from "@rari-capital/solmate/src/utils/SafeTransferLib.sol";
+import {ERC20} from "solmate/src/tokens/ERC20.sol";
+import {SafeTransferLib} from "solmate/src/utils/SafeTransferLib.sol";
 import {IERC20} from "./interfaces/IERC20.sol";
 import {IERC4626} from "./interfaces/IERC4626.sol";
 import {FixedPointMathLib} from "./libs/FixedPointMath.sol";

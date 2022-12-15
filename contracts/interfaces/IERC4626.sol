@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 pragma solidity ^0.8.8;
 
-import { ERC20 } from "@rari-capital/solmate/src/tokens/ERC20.sol";
+import { ERC20 } from "solmate/src/tokens/ERC20.sol";
 
 abstract contract IERC4626 is ERC20 {
     /*くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡くコ:彡
