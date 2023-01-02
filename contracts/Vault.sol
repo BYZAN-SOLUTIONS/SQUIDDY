@@ -1,4 +1,14 @@
 // SPDX-License-Identifier: AGPL-3.0-only
+
+
+/* ____              _     _     _
+/ ___|  __ _ _   _(_) __| | __| |_   _
+\___ \ / _` | | | | |/ _` |/ _` | | | |
+ ___) | (_| | |_| | | (_| | (_| | |_| |
+|____/ \__, |\__,_|_|\__,_|\__,_|\__, |
+          |_|                    |___/*/
+
+          
 pragma solidity ^0.8.8;
 
 import {ERC20} from "solmate/src/tokens/ERC20.sol";
@@ -28,6 +38,7 @@ contract Vault is ERC20, IERC4626 {
         string memory _symbol,
         address _squid
     ) ERC20(_name, _symbol, _underlying.decimals()) {
+        
         asset = _underlying;
         squid = _squid;
         vaultManager = _vaultManager;
